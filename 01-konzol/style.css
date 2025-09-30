@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin:0px;
+    width: 100vw;
+    height:100vh;
+}
+
+.panel {
+    width: 20%;
+    height: 20%;
+    margin: auto;
+    padding: 2em;
+    border: outset 4px #aaf4;
+    background-color: #aaf4;
+    align-content: center;
+}
+
+button {
+    font-size:16pt;
+    margin: auto;
+    display: block;
+}

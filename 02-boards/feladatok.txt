@@ -1,0 +1,51 @@
+HTML/CSS Grid + JavaScript Gyakorló Feladatok – Részletes Leírás
+
+1. Számológép
+ - Grid mérete: 4x5 (számok + műveletek + kijelző)
+ - Leírás: Készíts egy egyszerű számológépet, ahol a számok és az alapműveletek gombjai a grid cellák. A kijelző mutatja a beírt számokat és a műveletek eredményét.
+ - JS logika: Kattintásra a számokat a kijelzőre írja, a műveleteket kiszámítja. Tartalmazza a 4 alapműveletet (+, -, ×, ÷).
+
+2. Tic-Tac-Toe
+ - Grid mérete: 3x3, 4x4 vagy 5x5
+ - Leírás: Két játékos felváltva jelölhet cellákat X vagy O-val. A cél, hogy a saját jelükből egymás mellett 3–5 darab legyen egy sorban, oszlopban vagy átlóban.
+ - JS logika: Ellenőrzi a győzelmet minden lépés után, és kezeli a játék újraindítását.
+
+3. Színváltó játék
+ - Grid mérete: 4x4
+ - Leírás: Minden cella alapértelmezett színe szürke. Kattintásra a cella színe változik 3 előre meghatározott szín között. A játék célja, hogy minden sorban és oszlopban egységes szín legyen.
+ - JS logika: Ellenőrzi minden kattintás után, hogy teljesül-e a cél, és jelzi a győzelmet.
+
+4. Memóriajáték
+ - Grid mérete: 4x4
+ - Leírás: Minden cella „fedett” szimbólumot tartalmaz. Kattintásra felfedi a szimbólumot. Ha két egyező szimbólum kerül egymás után, marad felfedve, különben visszafordul.
+ - JS logika: Ellenőrzi a párokat, kezeli a felfedést és a visszaállítást, jelzi a játék végét.
+
+5. Számláló / léptető
+ - Grid mérete: 1x3 vagy 1x5
+ - Leírás: Középen egy szám jelenik meg. A bal oldali gomb -1-et, a jobb oldali +1-et ad, opcionálisan reset gomb nullázza a számlálót.
+ - JS logika: Frissíti a számláló értékét a kijelzőn gombnyomásra.
+
+6. Kattintásjáték / pontszerző
+ - Grid mérete: 3x3 vagy 4x4
+ - Leírás: A cellák véletlenszerűen változtatják színüket minden másodpercben. A felhasználó a színes cellákra kattint, hogy pontot szerezzen.
+ - JS logika: Számolja a pontokat, kezeli a színváltozást és az időtartamot.
+
+7. Digitális órás panel
+ - Grid mérete: 3x1 vagy 3x2
+ - Leírás: Középen megjelenik az aktuális idő. Gombokkal növelhető vagy csökkenthető az óra, perc és másodperc. Lehetőség időzítő indítására és megállítására.
+ - JS logika: Frissíti az időt, kezeli a gombnyomásokat és az időzítőt.
+
+8. Véletlenszám-kirakó
+ - Grid mérete: 3x3 vagy 4x4
+ - Leírás: A cellákba véletlenszerűen kerülnek számok. A játékos célja, hogy a számokat növekvő sorrendbe rendezze a cellák átcserélésével.
+ - JS logika: Ellenőrzi a sorrendet minden lépés után, kezeli a cellák átcserélését.
+
+9. Egyszerű kvíz
+ - Grid mérete: 2x2 vagy 3x2
+ - Leírás: Egy kérdés jelenik meg felül, a grid cellák a válaszlehetőségeket mutatják. Kattintásra jelzi, ha helyes vagy helytelen a válasz, majd a következő kérdésre lép.
+ - JS logika: Ellenőrzi a választ, kezeli a kérdések váltását és a pontszámot.
+
+10. Színes memória / párosító játék
+ - Grid mérete: 4x4 vagy 4x5
+ - Leírás: Cél a párosok megtalálása. Kattintásra a cella felfedi a színét vagy szimbólumát. Ha a két felfedett cella egyezik, marad felfedve, különben visszaáll.
+ - JS logika: Kezeli a felfedést, párosítás ellenőrzést és a játék végét.

@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #aec;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    text-align: center;
+    width: 80%;
+    margin: 0.5em auto;
+    padding: 0.5em;
+    background-color: #cfe;
+    box-shadow: 2px 2px 8px #0004;
+    font-family: Consolas, monospace;
+    font-size: 32pt;
+    border-radius: 0.5em;
+}
+
+.board {
+    margin: 0px auto;
+    display: grid;
+    border: outset 2px #8882;
+    width: fit-content;
+}
+
+.cell {
+    border: outset 1px #0004;
+    background-color: #fff;
+}
+
+.black {
+    background-color: #000;
+}
+
+.hover {
+    border: solid 2px red;
+}
