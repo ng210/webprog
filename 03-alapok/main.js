@@ -15,9 +15,35 @@ window.addEventListener('load', () => {
 function task1() {
     writeConsole('\n1. feladat');
     writeConsole('Primitívek');
-
+    let name = 'Kiss Pista';
+    let age = 32;
+    let weight = 80.5;
+    let isActive = true;
+    let nickname = null;
+    let rank;
+    writeConsole(`${name} ${typeof name}`);
+    writeConsole(`${age} ${typeof age}`);
+    writeConsole(`${weight} ${typeof weight}`);
+    writeConsole(`${isActive} ${typeof isActive}`);
+    writeConsole(`${nickname} ${typeof nickname}`);
+    writeConsole(`${rank} ${typeof rank}`);
 
     writeConsole('\nÖsszetett típus');
+    let fighter = {
+        'id': 'pityu',
+        'name': 'Kiss Pista',
+        'nick name': 'Pityu',
+        'gender': 'male',
+        'age': 32,
+        'wins': 2,
+        'losses': 1,
+        'draws': 1,
+
+        toString: function() {
+            return `${this.name}(${this.id}) - ${this.wins}/${this.losses}/${this.draws}`;
+        }
+    };
+    writeConsole(fighter);
 
 
     writeConsole('\nObjektumok tömbje');
