@@ -10,6 +10,11 @@ window.addEventListener('load', () => {
     task1();
     task2();
     task3();
+    task4();
+    task5();
+    task6();
+    task7();
+    task8();
 });
 
 function task1() {
@@ -69,4 +74,48 @@ function task3() {
 
 
     writeConsole('\nTípusellenőrzés');
+}
+
+function task4() {
+    writeConsole('\n4. feladat: Operátorok');
+    writeConsole('\nAritmetikai és értékadás');
+
+
+    writeConsole('\nLogikai és összehasonlító');
+
+
+    writeConsole('\nTernary (?)');
+}
+
+function task5() {
+    writeConsole('\n5. feladat: Vezérlési szerkezetek');
+    writeConsole('\nif...else');
+
+
+    writeConsole('\nswitch');
+
+}
+
+function task6() {
+    writeConsole('\n6. feladat: Ciklusok');
+    writeConsole('\nfor/for in/for of');
+
+
+    writeConsole('\nwhile');
+
+
+    writeConsole('\nExtra: Iterátor osztály');
+}
+
+function task7() {
+    writeConsole('\n7. feladat: Függvények, metódusok');
+    writeConsole('\nParaméter, alapérték');
+
+
+    writeConsole('\nNévtelen és nyílfüggvény');
+
+}
+
+function task8() {
+    writeConsole('\n8. extra feladat: Összetett feladat');
 }

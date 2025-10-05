@@ -1,6 +1,11 @@
 var _instance = null;
 var _isDragging = false;
 
+function resizeConsole(heightInPixels) {
+    _instance.style.top = `${_instance.parentNode.clientHeight - heightInPixels}px`;
+    _instance.style.height = heightInPixels + 'px';
+}
+
 function handleEvent(event) {
     switch (event.type) {
         case 'pointerdown':
@@ -13,8 +18,7 @@ function handleEvent(event) {
             break;
         case 'pointermove':
             if (_isDragging) {
-                _instance.style.top = `${event.clientY}px`;
-                _instance.style.height = (_instance.parentNode.clientHeight - event.clientY) + 'px';
+                resizeConsole(_instance.parentNode.clientHeight - event.clientY);
             }
             break;
     }
@@ -53,4 +57,4 @@ function getConsole() {
     return _instance;
 }
 
-export { createConsole, writeConsole, getConsole };
+export { createConsole, writeConsole, getConsole, resizeConsole };
