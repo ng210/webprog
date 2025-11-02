@@ -95,10 +95,12 @@ function resetShadow(host) {
 
 function createShadowRootAPI(shadow) {
 	return {
+		getElementById: document.getElementById.bind(document),
 		querySelector: shadow.querySelector.bind(shadow),
 		querySelectorAll: shadow.querySelectorAll.bind(shadow),
 		createElement: document.createElement.bind(document),
 		createTextNode: document.createTextNode.bind(document),
+		addEventListener: document.addEventListener.bind(document),
 		body: shadow.querySelector('div.body')
 	};
 

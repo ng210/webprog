@@ -910,3 +910,5 @@ const questions = [
     "correct": 0
   }
 ];
+
+export { questions };

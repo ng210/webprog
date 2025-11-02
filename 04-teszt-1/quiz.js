@@ -1,4 +1,8 @@
-(function () {
+import { questions} from './js-alapok.js'
+
+
+window.addEventListener('load', ev =>
+{
     // --- helper: parse code block from question text (```js ... ```), return {text,noCodeHtml,code} ---
     function extractCode(questionText) {
         const codeFence = /```(?:js)?\n([\s\S]*?)```/i;
@@ -33,14 +37,14 @@
     let answeredCount = 0;
     const total = questions.length;
 
-    const topicEl = document.getElementById('topic');
-    const qEl = document.getElementById('question');
-    const codeEl = document.getElementById('code-block');
-    const optsEl = document.getElementById('options');
-    const progressEl = document.getElementById('progress');
-    const scoreEl = document.getElementById('scoreSummary');
+    const topicEl = document.querySelector('#topic');
+    const qEl = document.querySelector('#question');
+    const codeEl = document.querySelector('#code-block');
+    const optsEl = document.querySelector('#options');
+    const progressEl = document.querySelector('#progress');
+    const scoreEl = document.querySelector('#scoreSummary');
     // const showBtn = document.getElementById('showBtn');
-    const nextBtn = document.getElementById('nextBtn');
+    const nextBtn = document.querySelector('#nextBtn');
 
     function sanitizeHtml(str) {
         // minimal escaping for safe insertion inside elements
@@ -206,4 +210,4 @@
             if (!nextBtn.disabled) next();
         }
     });
-})();
+});
