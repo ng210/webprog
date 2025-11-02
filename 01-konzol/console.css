@@ -1,4 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
 console {
+    padding: 0em;
+    margin: 0em;
     display: flex;
     flex-direction: column;
     position: absolute;

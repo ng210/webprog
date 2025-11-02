@@ -1,0 +1,6 @@
+[
+    { "name":"Konzol", "url":"./01-konzol/index.html" },
+    { "name":"Sakktábla", "url":"./02-boards/sakk/index.html" },
+    { "name":"Alapok #1", "url":"./03-alapok/index.html" },
+    { "name":"Teszt-1", "url":"./04-teszt-1/index.html" }
+]

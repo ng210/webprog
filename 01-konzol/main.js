@@ -5,7 +5,6 @@ var _console = null;
 function onLoad() {
     _console = createConsole();
     document.body.appendChild(_console);
-
     writeConsole("Hello World!");
 }
 
