@@ -49,7 +49,7 @@ function writeConsole(text) {
         createConsole();
     }
     let content = _instance.querySelector('.content');
-    content.innerText += text + '\n';
+    content.innerHTML += text + '\n';
     content.scrollTop = content.scrollHeight;
 }
 

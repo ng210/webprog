@@ -12,7 +12,7 @@ HTML/CSS Grid + JavaScript Gyakorló Feladatok – Részletes Leírás
 
 3. Színváltó játék
  - Grid mérete: 4x4
- - Leírás: Minden cella alapértelmezett színe szürke. Kattintásra a cella színe változik 3 előre meghatározott szín között. A játék célja, hogy minden sorban és oszlopban egységes szín legyen.
+ - Leírás: Minden cella alapértelmezett színe szürke. Kattintásra a cella sorának és oszlopának minden cellája színe egyformán megváltozik a 3 előre meghatározott szín közül. A játék célja, hogy minden sorban és oszlopban egységes szín legyen.
  - JS logika: Ellenőrzi minden kattintás után, hogy teljesül-e a cél, és jelzi a győzelmet.
 
 4. Memóriajáték

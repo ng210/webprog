@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript feladatok</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(to bottom, #404080, #202020);
+            background-attachment: fixed;
+            line-height: 1.6;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* Navigáció */
+        header {
+            width: 60%;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        nav {
+            background: #222;
+            color: #fff;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+            /* font-size: large; */
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        #search-term {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #000;
+            font-weight: bold;
+            margin-left: 10px;
+            border: inset 2px #888;
+            background-color: #444;
+            width: 10em;
+            height: 2.0em;
+            opacity: 0.4;
+        }
+
+        main {
+            width: 60%;
+            height: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Háttérszínek a külön témákhoz */
+        section:nth-child(odd) {
+            background-color: #80a0ff80;
+        }
+
+        section:nth-child(even) {
+            background-color: #80ffa080;
+        }
+
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        ol {
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background-color: #ffffff80;
+        }
+    </style>
+    <script src="tasks.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#dom-query">DOM lekérdezések</a></li>
+                <li><a href="#js-basics">JavaScript alapok</a></li>
+                <li><a href="#events">Eseménykezelés</a></li>
+                <!-- <li><a href="#regex">Reguláris kifejezések</a></li> -->
+                <li><a href="#array">Array</a></li>
+                <li><a href="#number">Number</a></li>
+                <li><a href="#string">String</a></li>
+                <!-- <li><a href="#date">Date</a></li>
+                <li><a href="#math">Math</a></li> -->
+                <li><a href="#dom-create">DOM generálás</a></li>
+            </ul>
+        </nav>
+        <input type="text" id="search" placeholder="Text...">
+        <div id="search-term">Text...</div>
+    </header>
+
+    <main>
+        <section id="dom-query">
+            <h2>🟧 DOM lekérdezések (6 feladat)</h2>
+            <ol>
+                <li>Válaszd ki a "dom-query" azonosítójú <i>section</i> elemet és színezd a hátterét fehérre!</li>
+                <li>Számold meg, hány &lt;ol&gt; elem van az oldalon!</li>
+                <li>Írd ki az első <i>h2</i> elem HTML és szöveges tartalmát!</li>
+                <li>Írd ki az első link (&lt;a&gt;) href attribútumát!</li>
+                <li>Keress meg minden <code>.highlight</code> osztályú elemet és töröld az osztályt az elemekről!</li>
+                <li>Keresd meg az első <i>ol</i> típusú elemet, és írd ki a szülőelemének és az első gyerekelemének az
+                    azonosítóját!</li>
+            </ol>
+        </section>
+
+        <section id="events">
+            <h2>🟦 Eseménykezelés (3 feladat)</h2>
+            <ol>
+                <li>A menü első eleméhez adj meg egy eseménykezelőt, amelyre a kattintásra felugró ablakban kiírja a
+                    menüpont tartalmát.</li>
+                <li>Az oldal tetején lévő &lt;input&gt; mezőnél írd ki valós időben a begépelt szöveget a &lt;search-termp&gt; elembe.</li>
+                <li>az első <i>section</i> elem fölé húzva az egeret, homályosítsd el (filter: blur()) eseménykezelővel.</li>
+            </ol>
+        </section>
+
+        <section id="js-basics">
+            <h2>🟩 JavaScript alapok (9 feladat)</h2>
+            <ol>
+                <li class="highlight"><input type="text" onchange="">Írj egy függvényt, amely a beadott szöveget kiírja egy felugró ablakban.</li>
+                <li class="highlight"><input type="text" onchange="">Kérj be egy stringet, és alakítsd át számmá. Felugró ablakban írd ki a számot, vagy ha nem konvertálható, írj ki
+                    hibaüzenetet.</li>
+                <li class="highlight"><input type="text" size="3" onchange="">+<input type="text" size="3" onchange="">=<span id="result"></span>Készíts egy függvényt, ami a két bemeneti szám összegét adja vissza.</li>
+                <li class="highlight"><button onclick="">Person</button>Hozz létre egy person objektumot name, age és job tulajdonságokkal.</li>
+                <li class="highlight"><button onclick="">toString</button>Adj az előző objektumhoz egy metódust, ami a következő stringet adja vissza: "Név: &lt;name&gt;, Kor:
+                    &lt;age&gt;".</li>
+                <li class="highlight"><button onclick="">Átlag</button>Készíts egy tömböt 10 véletlen számból, és számold ki az átlagukat.</li>
+                <li class="highlight"><button onclick="">Szűrés</button>Szűrd ki az összes páros számot a tömbből.</li>
+                <li class="highlight">Írj két ciklust, amelyek 1-től 5-ig számolnak — for és while változatban.</li>
+                <li class="highlight"><input type="text" size="5" id="name"><button onclick="">Hello</button>Készíts egy függvényt, ami felugró ablakban kiírja a "Hello, &lt;name&gt;!" szöveget, a name paraméter alapértelmezett értéke legyen "Vendég".</li>
+            </ol>
+        </section>
+
+        <!-- <section id="regex">
+            <h2>🟨 Reguláris kifejezések (6 feladat)</h2>
+            <ol>
+                <li>Ellenőrizd, hogy egy string email formátumú-e.</li>
+                <li>Írj regexet, ami csak számokat fogad el.</li>
+                <li>Ellenőrizd, hogy a string nagybetűvel kezdődik-e.</li>
+                <li>Keresd meg a “JavaScript” szót egy mondatban, kis/nagybetűtől függetlenül.</li>
+                <li>Töröld a felesleges szóközöket regex-szel (string.replace(regex, '')).</li>
+                <li>Írj regexet a magyar telefonszám formátumra.</li>
+            </ol>
+        </section> -->
+
+        <section id="array">
+            <h2>🟩 Array – tömbök (6 feladat)</h2>
+            <ol>
+                <li><input type="text" value="10,20,30,40,50">Olvasd be az input elem tartalmát, és alakítsd tömbbé. Írd ki, hány elem van a tömbben.</li>
+                <li><button onclick="">Push</button>Adj hozzá egy új véletlen számot a push() metódussal.</li>
+                <li><button onclick="">Reduce</button>Számold ki a tömb elemeinek összegét a reduce() metódussal.</li>
+                <li><button onclick="">Szűrés</button>Szűrd ki a 7-nél nagyobbakat.</li>
+                <li><button onclick="">Map</button>Növeld meg minden elem értékét 10-zel a map() függvénnyel.</li>
+                <li><button onclick="">Sort</button>Rendezd a tömböt fordított sorrendben.</li>
+            </ol>
+        </section>
+
+        <section id="number">
+            <h2>🟦 Number – szám objektum (4 feladat)</h2>
+            <ol>
+                <li><button onclick="">toFixed</button>Kerekítsd a PI értékét 2 tizedesre a toFixed() metódussal.</li>
+                <li><input type="text" onchange="">Kerekítsd a beadott számot egészre és írd ki felugró ablakban.</li>
+                <li><input type="text" onchange="">Ellenőrizd, hogy beadott szám egész-e.</li>
+                <li><button onclick="">NaN</button>Ellenőrizd, hogy "abc" NaN-e.</li>
+            </ol>
+        </section>
+
+        <section id="string">
+            <h2>🟨 String – sztring objektum (6 feladat)</h2>
+            <ol>
+                <li><input type="text" onchange="">Írd ki a szöveg hosszát.</li>
+                <li><input type="text" id="upper">Alakítsd a szöveget nagybetűssé.</li>
+                <li><input type="text" id="fun">Ellenőrizd, hogy tartalmazza-e a "fun" szót.</li>
+                <li><input type="text" id="head4">Vágd ki az első 4 karaktert a szövegből.</li>
+                <li><input type="text" id="replace">Cseréld ki a szövegben a c-t s-re.</li>
+                <li><input type="text" id="split">Bontsd szét a szöveget a szóközök mentén tömbbé.</li>
+            </ol>
+        </section>
+
+        <section id="date">
+            <h2>🟥 Date – dátum objektum (2 feladat)</h2>
+            <ol>
+                <li><input type="text" id="format">Formázd a mai dátumot YYYY-MM-DD formátumra.</li>
+                <li><input type="text" id="today">Írd ki az aktuális év, hónap és nap értékeit.</li>
+            </ol>
+        </section>
+
+        <!-- <section id="math">
+            <h2>🧮 Math – matematikai objektum (6 feladat)</h2>
+            <ol>
+                <li>Kerekítsd a 4.7 számot le és fel.</li>
+                <li>Generálj véletlen egész számot 1 és 10 között.</li>
+                <li>Számold ki 3⁴ értékét.</li>
+                <li>Számold ki 64 négyzetgyökét.</li>
+                <li>Írd ki a -25 abszolút értékét.</li>
+                <li>Keresd meg a min és max értéket egy tömbben.</li>
+            </ol>
+        </section> -->
+
+        <section id="dom-create">
+            <h2>🟥 DOM generálás (6 feladat)</h2>
+            <ol>
+                <li>Hozz létre egy új &lt;section&gt; elemet és add hozzá a dokumentumhoz, az utolsó section után.</li>
+                <li>Az új section elemben hozz létre egy új &lt;ul&gt; elemet.</li>
+                <li>Generálj 5 &lt;li&gt; elemet az új &lt;ul&gt; listába ciklussal, az elemek tartalma legyen fekete, fehér, piros, zöld, kék.</li>
+                <li>Távolítsd el az utolsó gyerekelemet a listából.</li>
+                <li>Adj az új section elemnek egyedi azonosítót.</li>
+                <li>Színezd ki az új lista elemeket különböző színekkel.</li>
+            </ol>
+        </section>
+    </main>
+</body>
+
+</html>

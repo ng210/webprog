@@ -1,0 +1,912 @@
+[
+  {
+    "id": 1,
+    "topic": "IDE és modulok",
+    "question": "Mi az IDE (Integrated Development Environment) fő szerepe?",
+    "options": [
+      "A kód szerkesztése, futtatása és hibakeresése egy helyen.",
+      "Csak a program futtatását teszi lehetővé.",
+      "A weboldalak böngészőben való megjelenítése.",
+      "A programok telepítése és eltávolítása."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 2,
+    "topic": "IDE és modulok",
+    "question": "Mit jelent a 'debugger' kifejezés?",
+    "options": [
+      "Egy eszköz, amely segít a hibák megtalálásában és javításában.",
+      "Egy JavaScript könyvtár a grafikus elemekhez.",
+      "A program fordítója.",
+      "A weboldalak stílusát kezelő komponens."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 3,
+    "topic": "IDE és modulok",
+    "question": "Mit csinál a 'step over' művelet hibakeresés közben?",
+    "options": [
+      "Belép a függvénybe.",
+      "Átugrik a függvényen anélkül, hogy belépne.",
+      "Leállítja a program futását.",
+      "Új töréspontot helyez el."
+    ],
+    "correct": 1
+  },
+  {
+    "id": 4,
+    "topic": "IDE és modulok",
+    "question": "Mit ír a konzolra az alábbi kód?\n```js\nconsole.log('Hello');\nconsole.error('Hiba!');\n```",
+    "options": [
+      "Mindkettőt ugyanúgy írja ki fekete szövegként.",
+      "A 'Hello' üzenetet normálként, a 'Hiba!' üzenetet pirosan írja ki.",
+      "A 'Hello' üzenetet pirosan, a 'Hiba!' üzenetet kékkel.",
+      "Csak a 'Hiba!' üzenetet írja ki."
+    ],
+    "correct": 1
+  },
+  {
+    "id": 5,
+    "topic": "IDE és modulok",
+    "question": "Mi a különbség a 'console.log' és a 'console.debug' között?",
+    "options": [
+      "Semmi, ugyanazt csinálják.",
+      "A 'debug' üzeneteket csak fejlesztői módban mutatja a konzol.",
+      "A 'console.debug' mindig pirosan jelenik meg.",
+      "A 'console.log' csak hibákat ír ki."
+    ],
+    "correct": 1
+  },
+  {
+    "id": 6,
+    "topic": "IDE és modulok",
+    "question": "Melyik környezet képes JavaScript kódot futtatni a szerveren?",
+    "options": [
+      "Node.js",
+      "Chrome böngésző",
+      "Visual Studio Code",
+      "Firefox"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 7,
+    "topic": "IDE és modulok",
+    "question": "Melyik parancs írja ki a Node.js verzióját a terminálban?",
+    "options": [
+      "node -v",
+      "npm run version",
+      "js version",
+      "node version()"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 8,
+    "topic": "IDE és modulok",
+    "question": "Mi a 'globalThis' objektum szerepe a JavaScript modulokban?",
+    "options": [
+      "Minden környezetben egységes módon hivatkozik a globális objektumra.",
+      "Csak a böngészőben létezik.",
+      "A helyi változók listáját tartalmazza.",
+      "A modulok importálására szolgál."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 9,
+    "topic": "IDE és modulok",
+    "question": "Mit csinál az alábbi kód?\n```js\nexport function hello() {\n  console.log('Szia!');\n}\n```",
+    "options": [
+      "Egy függvényt exportál, amit más modul importálhat.",
+      "A függvényt azonnal meghívja.",
+      "Egy globális változót hoz létre.",
+      "Egy új modulfájlt generál."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 10,
+    "topic": "IDE és modulok",
+    "question": "Mit jelent az 'import' kulcsszó JavaScript modulban?",
+    "options": [
+      "Másik modulból funkciókat vagy értékeket tölt be.",
+      "Új modult hoz létre.",
+      "Globális változókat hoz létre.",
+      "A modul törlésére szolgál."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 11,
+    "topic": "IDE és modulok",
+    "question": "Melyik a helyes ES modul importálás?\n```js\nimport { readFile } from 'fs';\n```",
+    "options": [
+      "Helyes ES modul szintaxis.",
+      "Helytelen, az 'import' csak böngészőben használható.",
+      "Helytelen, hiányzik a 'module' kulcsszó.",
+      "Helytelen, zárójel helyett idézőjel kell."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 12,
+    "topic": "IDE és modulok",
+    "question": "Melyik állítás igaz a CommonJS modulrendszerre?",
+    "options": [
+      "A 'require' és 'module.exports' kulcsszavakat használja.",
+      "Csak böngészőben használható.",
+      "Az 'import' és 'export' kulcsszavakat használja.",
+      "A modulok automatikusan futnak párhuzamosan."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 13,
+    "topic": "IDE és modulok",
+    "question": "Mit ír ki a következő kód Node.js-ben?\n```js\nconsole.log(globalThis === global);\n```",
+    "options": ["true", "false", "undefined", "Hiba történik"],
+    "correct": 0
+  },
+  {
+    "id": 14,
+    "topic": "IDE és modulok",
+    "question": "Milyen kiterjesztésű fájlban tároljuk az ES modulokat?",
+    "options": [".esm", ".mjs", ".mod", ".jsm"],
+    "correct": 1
+  },
+  {
+    "id": 15,
+    "topic": "IDE és modulok",
+    "question": "Mi történik, ha egy modulban kétszer importálunk ugyanarra a fájlra?",
+    "options": [
+      "A modul csak egyszer töltődik be, és újrahasznosítja a példányt.",
+      "Mindkét import külön példányt hoz létre.",
+      "A program lefagy.",
+      "A második import felülírja az elsőt."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 16,
+    "topic": "IDE és modulok",
+    "question": "Mit jelent a 'breakpoint' a hibakeresés során?",
+    "options": [
+      "Egy pont, ahol a program futása megáll, és megvizsgálható a változók állapota.",
+      "Egy hiba a kódban.",
+      "Egy új függvényhívás.",
+      "A program vége."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 17,
+    "topic": "IDE és modulok",
+    "question": "Mit ír ki a következő kód?\n```js\nconsole.warn('Figyelmeztetés!');\n```",
+    "options": [
+      "Egy figyelmeztetést a konzolra sárga színnel.",
+      "Egy hibát piros színnel.",
+      "Egy információt kékkel.",
+      "Semmit, mert a 'warn' csak Node.js-ben működik."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 18,
+    "topic": "IDE és modulok",
+    "question": "Melyik parancs futtat egy JavaScript fájlt Node.js-ben?",
+    "options": [
+      "node script.js",
+      "npm start script.js",
+      "js run script.js",
+      "node execute script.js"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 19,
+    "topic": "IDE és modulok",
+    "question": "Mit jelent az 'E' az 'ES module' kifejezésben?",
+    "options": [
+      "ECMAScript",
+      "Environment",
+      "Editor",
+      "Enhanced"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 20,
+    "topic": "IDE és modulok",
+    "question": "Melyik állítás igaz a Node.js környezetre?",
+    "options": [
+      "A Node.js a JavaScriptet szerveroldalon futtatja.",
+      "A Node.js böngészőbővítmény.",
+      "A Node.js kizárólag front-end célokra készült.",
+      "A Node.js csak HTML fájlokat értelmez."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 21,
+    "topic": "Típusok és értékek",
+    "question": "Melyik NEM primitív adattípus JavaScriptben?",
+    "options": ["String", "Number", "Object", "Boolean"],
+    "correct": 2
+  },
+  {
+    "id": 22,
+    "topic": "Típusok és értékek",
+    "question": "Mit ad vissza az alábbi kód?\n```js\ntypeof 'alma'\n```",
+    "options": ["'text'", "'string'", "'object'", "'char'"],
+    "correct": 1
+  },
+  {
+    "id": 23,
+    "topic": "Típusok és értékek",
+    "question": "Mit jelent a NaN érték JavaScriptben?",
+    "options": [
+      "Not a Number – nem szám típusú érték",
+      "Null értéket",
+      "Egy végtelen számot",
+      "Nem definiált változót"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 24,
+    "topic": "Típusok és értékek",
+    "question": "Mit ad vissza a következő kód?\n```js\nBoolean('')\n```",
+    "options": ["true", "false", "undefined", "null"],
+    "correct": 1
+  },
+  {
+    "id": 25,
+    "topic": "Típusok és értékek",
+    "question": "Mi a különbség a null és az undefined között?",
+    "options": [
+      "A null egy szándékosan üres érték, az undefined egy nem inicializált változó.",
+      "Ugyanazt jelentik, felcserélhetők.",
+      "A null csak objektum lehet.",
+      "Az undefined szám típusú."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 26,
+    "topic": "Típusok és értékek",
+    "question": "Mi lesz az eredmény?\n```js\ntypeof 42;\n```",
+    "options": ["'int'", "'number'", "'numeric'", "'integer'"],
+    "correct": 1
+  },
+  {
+    "id": 27,
+    "topic": "Típusok és értékek",
+    "question": "Melyik primitív típus értéke lehet NaN?",
+    "options": ["String", "Number", "Boolean", "Object"],
+    "correct": 1
+  },
+  {
+    "id": 28,
+    "topic": "Típusok és értékek",
+    "question": "Mit ad vissza az alábbi kód?\n```js\ntypeof Symbol('x')\n```",
+    "options": ["'symbol'", "'object'", "'string'", "'undefined'"],
+    "correct": 0
+  },
+  {
+    "id": 29,
+    "topic": "Típusok és értékek",
+    "question": "Melyik igaz az objektumokra?",
+    "options": [
+      "Kulcs–érték párokat tartalmaznak.",
+      "Csak számokat tárolhatnak.",
+      "Nem módosíthatók létrehozás után.",
+      "Mindig tömbként működnek."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 30,
+    "topic": "Típusok és értékek",
+    "question": "Mit ad vissza a következő kód?\n```js\ntypeof []\n```",
+    "options": ["'array'", "'object'", "'list'", "'collection'"],
+    "correct": 1
+  },
+  {
+    "id": 31,
+    "topic": "Típusok és értékek",
+    "question": "Mit jelenít meg az alábbi kód?\n```js\nconsole.log(new Boolean(false));\n```",
+    "options": [
+      "false",
+      "true",
+      "Egy objektum, ami igaznak számít",
+      "undefined"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 32,
+    "topic": "Típusok és értékek",
+    "question": "Mi a különbség a let és a const között?",
+    "options": [
+      "A const értéke nem változtatható meg.",
+      "A let globális változót hoz létre.",
+      "A const csak függvényen belül használható.",
+      "A let változók statikusak."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 33,
+    "topic": "Típusok és értékek",
+    "question": "Mit jelent az alábbi kód?\n```js\nlet x;\nconsole.log(x);\n```",
+    "options": ["null", "undefined", "0", "false"],
+    "correct": 1
+  },
+  {
+    "id": 34,
+    "topic": "Típusok és értékek",
+    "question": "Melyik típus jött az ES6-ban?",
+    "options": ["BigInt", "Number", "String", "Boolean"],
+    "correct": 0
+  },
+  {
+    "id": 35,
+    "topic": "Típusok és értékek",
+    "question": "Mit ad vissza a következő kód?\n```js\ntypeof 123n\n```",
+    "options": ["'bigint'", "'number'", "'integer'", "'object'"],
+    "correct": 0
+  },
+  {
+    "id": 36,
+    "topic": "Típusok és értékek",
+    "question": "Mit ad vissza a következő kód?\n```js\ntypeof null\n```",
+    "options": ["'null'", "'undefined'", "'object'", "'empty'"],
+    "correct": 2
+  },
+  {
+    "id": 37,
+    "topic": "Típusok és értékek",
+    "question": "Mit csinál a parseInt('20.5')?",
+    "options": ["20", "20.5", "NaN", "Hiba történik"],
+    "correct": 0
+  },
+  {
+    "id": 38,
+    "topic": "Típusok és értékek",
+    "question": "Mit jelent a 'gyengén típusos' nyelv kifejezés JavaScriptre?",
+    "options": [
+      "A típusok automatikusan átalakulhatnak más típusokká.",
+      "Minden változónak fix típusa van.",
+      "Nem enged típusváltást futás közben.",
+      "A típusokat fordításkor ellenőrzi."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 39,
+    "topic": "Típusok és értékek",
+    "question": "Mit jelenít meg?\n```js\nconsole.log('5' + 5);\n```",
+    "options": ["10", "'55'", "NaN", "undefined"],
+    "correct": 1
+  },
+  {
+    "id": 40,
+    "topic": "Típusok és értékek",
+    "question": "Mit jelenít meg?\n```js\nconsole.log(5 + true);\n```",
+    "options": ["6", "5", "true5", "NaN"],
+    "correct": 0
+  },
+  {
+    "id": 41,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit jelenít meg?\n```js\nconsole.log(10 + '5');\n```",
+    "options": ["'105'", "15", "NaN", "undefined"],
+    "correct": 0
+  },
+  {
+    "id": 42,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit ad vissza?\n```js\n10 - '5'\n```",
+    "options": ["'105'", "5", "NaN", "TypeError"],
+    "correct": 1
+  },
+  {
+    "id": 43,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mi lesz az eredmény?\n```js\n!!'alma'\n```",
+    "options": ["false", "true", "undefined", "0"],
+    "correct": 1
+  },
+  {
+    "id": 44,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Melyik érték számít 'falsy'-nak?",
+    "options": ["'false'", "0", "{}", "[]"],
+    "correct": 1
+  },
+  {
+    "id": 45,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit ad vissza a Number('alma') kifejezés?",
+    "options": ["NaN", "0", "undefined", "null"],
+    "correct": 0
+  },
+  {
+    "id": 46,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit ad vissza a Boolean('false')?",
+    "options": ["false", "true", "undefined", "NaN"],
+    "correct": 1
+  },
+  {
+    "id": 47,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit ad vissza az alábbi kód?\n```js\nString(100)\n```",
+    "options": ["'100'", "100", "NaN", "undefined"],
+    "correct": 0
+  },
+  {
+    "id": 48,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Melyik NEM igaz az implicit típuskonverzióra?",
+    "options": [
+      "Automatikusan történik műveleteknél.",
+      "Mindig hiba nélkül fut le.",
+      "A '+' operátor szöveggé alakíthat számokat.",
+      "A '*' operátor számmá alakítja a stringet."
+    ],
+    "correct": 1
+  },
+  {
+    "id": 49,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit ad vissza?\n```js\nparseInt('200px')\n```",
+    "options": ["200", "NaN", "'200px'", "undefined"],
+    "correct": 0
+  },
+  {
+    "id": 50,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit ír ki?\n```js\nconsole.log(typeof NaN);\n```",
+    "options": ["'number'", "'NaN'", "'undefined'", "'object'"],
+    "correct": 0
+  },
+  {
+    "id": 51,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit ad vissza?\n```js\nisNaN('alma')\n```",
+    "options": ["true", "false", "NaN", "undefined"],
+    "correct": 0
+  },
+  {
+    "id": 52,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mi az eredmény?\n```js\ntypeof undefined\n```",
+    "options": ["'undefined'", "'null'", "'object'", "'string'"],
+    "correct": 0
+  },
+  {
+    "id": 53,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit ad vissza?\n```js\nArray.isArray([1,2,3])\n```",
+    "options": ["true", "false", "undefined", "null"],
+    "correct": 0
+  },
+  {
+    "id": 54,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit jelent a következő kifejezés?\n```js\nobj instanceof Object\n```",
+    "options": [
+      "Igaz, ha az obj egy objektum példánya.",
+      "Igaz, ha az obj string típusú.",
+      "Igaz, ha az obj üres.",
+      "Mindig hamis."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 55,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit jelent a következő kód?\n```js\ntypeof null === 'object'\n```",
+    "options": [
+      "Ez egy ismert hiba a nyelvben, de igaznak számít.",
+      "Ez mindig hamis.",
+      "A null egy tömb.",
+      "A null nem vizsgálható typeof-fal."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 56,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mi lesz a typeof new Date() eredménye?",
+    "options": ["'object'", "'date'", "'string'", "'function'"],
+    "correct": 0
+  },
+  {
+    "id": 57,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit ad vissza?\n```js\nObject.prototype.toString.call([])\n```",
+    "options": ["'[object Array]'", "'array'", "'[Array]'", "'object'"],
+    "correct": 0
+  },
+  {
+    "id": 58,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit jelent a Boolean konverzióban a két felkiáltójel (!!)?",
+    "options": [
+      "Logikai értékké alakít egy kifejezést.",
+      "Tagadást végez kétszer egymás után.",
+      "Szöveggé alakít egy kifejezést.",
+      "Nullát ad vissza, ha a kifejezés falsy."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 59,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit jelenít meg?\n```js\nconsole.log(10 == '10');\n```",
+    "options": ["true", "false", "undefined", "Error"],
+    "correct": 0
+  },
+  {
+    "id": 60,
+    "topic": "Átalakítás és típusellenőrzés",
+    "question": "Mit jelenít meg?\n```js\nconsole.log(10 === '10');\n```",
+    "options": ["true", "false", "undefined", "NaN"],
+    "correct": 1
+  },
+  {
+    "id": 61,
+    "topic": "Függvények és objektumok",
+    "question": "Mi a függvény definíciójának helyes szintaxisa?",
+    "options": [
+      "function add(a, b) { return a + b; }",
+      "def add(a, b): return a + b;",
+      "add = function: (a, b) => a + b;",
+      "function: add(a, b) => { return a + b; }"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 62,
+    "topic": "Függvények és objektumok",
+    "question": "Mit jelenít meg?\n```js\nfunction greet() { return 'Hello'; }\nconsole.log(typeof greet);\n```",
+    "options": ["'function'", "'object'", "'string'", "'undefined'"],
+    "correct": 0
+  },
+  {
+    "id": 63,
+    "topic": "Függvények és objektumok",
+    "question": "Mi az arrow function helyes példája?",
+    "options": [
+      "(x, y) => x + y",
+      "function(x, y) => x + y",
+      "=> (x, y) { x + y }",
+      "x, y -> x + y"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 64,
+    "topic": "Függvények és objektumok",
+    "question": "Mit jelent a this kulcsszó egy metódusban?",
+    "options": [
+      "Az aktuális objektumra hivatkozik.",
+      "A globális objektumot jelenti mindig.",
+      "Mindig a szülő függvényre mutat.",
+      "A window objektumot jelöli minden esetben."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 65,
+    "topic": "Függvények és objektumok",
+    "question": "Mi az eredmény?\n```js\nconst f = (a = 5, b = 3) => a * b;\nconsole.log(f());\n```",
+    "options": ["15", "8", "undefined", "NaN"],
+    "correct": 0
+  },
+  {
+    "id": 66,
+    "topic": "Függvények és objektumok",
+    "question": "Mit ad vissza ez a függvény?\n```js\nfunction test(a, b){ return a ?? b; }\nconsole.log(test(null, 10));\n```",
+    "options": ["10", "null", "undefined", "Error"],
+    "correct": 0
+  },
+  {
+    "id": 67,
+    "topic": "Függvények és objektumok",
+    "question": "Mit jelent a call metódus?",
+    "options": [
+      "Egy függvényt meghív egy megadott this kontextussal.",
+      "Egy objektumot hoz létre.",
+      "Egy függvényt más néven hív meg.",
+      "Leállítja a függvény futását."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 68,
+    "topic": "Függvények és objektumok",
+    "question": "Mit jelenít meg?\n```js\nfunction sum(...nums) { return nums.length; }\nconsole.log(sum(1,2,3,4));\n```",
+    "options": ["4", "10", "undefined", "Error"],
+    "correct": 0
+  },
+  {
+    "id": 69,
+    "topic": "Függvények és objektumok",
+    "question": "Mit jelent a következő szintaxis?\n```js\nfunction* gen() { yield 1; yield 2; }\n```",
+    "options": [
+      "Egy generátor függvényt definiál.",
+      "Egy aszinkron függvényt definiál.",
+      "Egy osztályt hoz létre.",
+      "Egy promise-t ad vissza."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 70,
+    "topic": "Függvények és objektumok",
+    "question": "Mit ad vissza?\n```js\n(async () => 'OK')().then(console.log);\n```",
+    "options": ["'OK'", "Promise", "undefined", "Error"],
+    "correct": 1
+  },
+  {
+    "id": 71,
+    "topic": "Függvények és objektumok",
+    "question": "Mit jelenít meg?\n```js\nconst obj = {a: 1, b: 2};\nconsole.log(Object.keys(obj));\n```",
+    "options": ["['a','b']", "[1,2]", "['1','2']", "undefined"],
+    "correct": 0
+  },
+  {
+    "id": 72,
+    "topic": "Függvények és objektumok",
+    "question": "Mi a különbség a call és az apply között?",
+    "options": [
+      "Az apply tömbként adja át az argumentumokat.",
+      "A call több értéket ad vissza.",
+      "A call nem használ this-t.",
+      "Nincs különbség."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 73,
+    "topic": "Függvények és objektumok",
+    "question": "Mit jelenít meg?\n```js\nconst obj = { name: 'Max' };\nconst say = function() { return this.name; };\nconsole.log(say.call(obj));\n```",
+    "options": ["'Max'", "undefined", "Error", "null"],
+    "correct": 0
+  },
+  {
+    "id": 74,
+    "topic": "Függvények és objektumok",
+    "question": "Mit ad vissza a typeof null?",
+    "options": ["'object'", "'null'", "'undefined'", "'none'"],
+    "correct": 0
+  },
+  {
+    "id": 75,
+    "topic": "Függvények és objektumok",
+    "question": "Milyen típusú a függvény JavaScriptben?",
+    "options": [
+      "Object",
+      "Primitive",
+      "Class",
+      "Undefined"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 76,
+    "topic": "Függvények és objektumok",
+    "question": "Mit ír ki?\n```js\nconst o = {n: 5};\no.m = function() { return this.n * 2; };\nconsole.log(o.m());\n```",
+    "options": ["10", "undefined", "NaN", "Error"],
+    "correct": 0
+  },
+  {
+    "id": 77,
+    "topic": "Függvények és objektumok",
+    "question": "Mi lesz az eredmény?\n```js\nconst o = {};\nconsole.log(o.toString());\n```",
+    "options": ["'[object Object]'", "'{}'", "'[Object]'", "Error"],
+    "correct": 0
+  },
+  {
+    "id": 78,
+    "topic": "Függvények és objektumok",
+    "question": "Mit ad vissza ez a kód?\n```js\nconst obj = { x: 1 };\nconst copy = { ...obj };\nconsole.log(copy.x);\n```",
+    "options": ["1", "undefined", "Error", "null"],
+    "correct": 0
+  },
+  {
+    "id": 79,
+    "topic": "Függvények és objektumok",
+    "question": "Mi a bind metódus szerepe?",
+    "options": [
+      "Új függvényt hoz létre fix this kontextussal.",
+      "Lemásolja a függvény kódját.",
+      "Végrehajtja a függvényt azonnal.",
+      "Törli a függvényt a memóriából."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 80,
+    "topic": "Függvények és objektumok",
+    "question": "Mit jelent a 'constructor' tulajdonság?",
+    "options": [
+      "Megadja, melyik függvénnyel jött létre az objektum.",
+      "A példány sorszámát adja vissza.",
+      "Mindig undefined értéket tartalmaz.",
+      "Csak az osztályoknál használható."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 81,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit jelenít meg?\n```js\nconsole.log(5 % 2);\n```",
+    "options": ["1", "2.5", "0", "NaN"],
+    "correct": 0
+  },
+  {
+    "id": 82,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit ad vissza?\n```js\n3 ** 2\n```",
+    "options": ["9", "6", "8", "Error"],
+    "correct": 0
+  },
+  {
+    "id": 83,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit jelent a '===' operátor?",
+    "options": [
+      "Típus- és értékazonos összehasonlítást végez.",
+      "Csak értéket hasonlít össze.",
+      "Logikai 'vagy' műveletet jelent.",
+      "Mindig hamis eredményt ad."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 84,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit ad vissza?\n```js\nfalse || 'alma'\n```",
+    "options": ["'alma'", "false", "true", "undefined"],
+    "correct": 0
+  },
+  {
+    "id": 85,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit ad vissza?\n```js\nnull ?? 'alapértelmezett'\n```",
+    "options": ["'alapértelmezett'", "null", "undefined", "Error"],
+    "correct": 0
+  },
+  {
+    "id": 86,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit jelent a '&&=' operátor?",
+    "options": [
+      "Csak akkor ír új értéket, ha az eredeti igaz.",
+      "Mindig új értéket rendel.",
+      "Bitenkénti ÉS műveletet végez.",
+      "Értékeket ad össze."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 87,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit ad vissza?\n```js\ntrue && false\n```",
+    "options": ["false", "true", "undefined", "0"],
+    "correct": 0
+  },
+  {
+    "id": 88,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit ad vissza?\n```js\n5 > 3 ? 'igen' : 'nem'\n```",
+    "options": ["'igen'", "'nem'", "true", "undefined"],
+    "correct": 0
+  },
+  {
+    "id": 89,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit jelenít meg?\n```js\nconsole.log(2 << 1);\n```",
+    "options": ["4", "1", "3", "8"],
+    "correct": 0
+  },
+  {
+    "id": 90,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit ad vissza?\n```js\n10 > 5 && 5 > 2\n```",
+    "options": ["true", "false", "undefined", "NaN"],
+    "correct": 0
+  },
+  {
+    "id": 91,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit jelenít meg?\n```js\nconsole.log(5 | 3);\n```",
+    "options": ["7", "15", "8", "2"],
+    "correct": 0
+  },
+  {
+    "id": 92,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mi a különbség a '||' és a '??' között?",
+    "options": [
+      "A '??' csak null és undefined esetén adja vissza a második értéket.",
+      "A '||' mindig a második értéket adja.",
+      "A '??' logikai ÉS-t jelent.",
+      "A '??' csak számokra alkalmazható."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 93,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit ad vissza?\n```js\n+'5' * 2\n```",
+    "options": ["10", "'55'", "NaN", "Error"],
+    "correct": 0
+  },
+  {
+    "id": 94,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit jelenít meg?\n```js\nconsole.log(!0);\n```",
+    "options": ["true", "false", "undefined", "0"],
+    "correct": 0
+  },
+  {
+    "id": 95,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit ad vissza?\n```js\n3 + 4 * 2\n```",
+    "options": ["11", "14", "10", "NaN"],
+    "correct": 0
+  },
+  {
+    "id": 96,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit ad vissza?\n```js\ntypeof (function(){})\n```",
+    "options": ["'function'", "'object'", "'method'", "'undefined'"],
+    "correct": 0
+  },
+  {
+    "id": 97,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit ad vissza?\n```js\ntypeof [] === 'object'\n```",
+    "options": ["true", "false", "undefined", "Error"],
+    "correct": 0
+  },
+  {
+    "id": 98,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit jelent a 'delete' operátor?",
+    "options": [
+      "Egy objektum tulajdonságát törli.",
+      "Törli a változót a memóriából.",
+      "Megszakítja a programot.",
+      "Visszaadja az objektum típusát."
+    ],
+    "correct": 0
+  },
+  {
+    "id": 99,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit jelenít meg?\n```js\nconsole.log(typeof typeof 5);\n```",
+    "options": ["'string'", "'number'", "'undefined'", "'object'"],
+    "correct": 0
+  },
+  {
+    "id": 100,
+    "topic": "Operátorok és kifejezések",
+    "question": "Mit jelent az alábbi kifejezés?\n```js\n( () => { console.log('Hello'); } )();\n```",
+    "options": [
+      "Egy azonnal meghívott függvény (IIFE).",
+      "Egy hibás függvénydefiníció.",
+      "Egy szinkron ciklus.",
+      "Egy generátorfüggvény."
+    ],
+    "correct": 0
+  }
+]

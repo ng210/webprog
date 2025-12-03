@@ -1,0 +1,133 @@
+1. String
+Keresés, vizsgálat
+    includes()
+    startsWith()
+    endsWith()
+    indexOf()
+    lastIndexOf()
+    match()
+    matchAll()
+    search()
+    localeCompare()
+Módosítás, átalakítás
+    replace()
+    replaceAll()
+    toLowerCase()
+    toUpperCase()
+    slice()
+    substring()
+    trim(), trimStart(), trimEnd()
+    split()
+
+2. Array
+Lekérdezés
+    includes()
+    indexOf()
+    lastIndexOf()
+    find()
+    findIndex()
+    some()
+    every()
+Iterálás
+    forEach()
+    map()
+    filter()
+    reduce(), reduceRight()
+Módosítás
+    push(), pop()
+    shift(), unshift()
+    splice()
+    sort()
+    reverse()
+    fill()
+Új tömb létrehozása
+    slice()
+    concat()
+    flat(), flatMap()
+
+3. Date
+Lekérdezés
+    getFullYear()
+    getMonth()
+    getDate()
+    getDay()
+    getHours(), getMinutes(), getSeconds(), getMilliseconds()
+    getTime()
+    getTimezoneOffset()
+Beállítás
+    setFullYear()
+    setMonth()
+    setDate()
+    setHours(), setMinutes(), setSeconds(), setMilliseconds()
+    setTime()
+Konverzió
+    toISOString()
+    toLocaleString()
+    toLocaleDateString()
+    toLocaleTimeString()
+    toJSON()
+
+4. RegExp
+Keresés
+    test()
+    exec()
+
+5. Object
+Statikus metódusok
+    Object.keys()
+    Object.values()
+    Object.entries()
+    Object.defineProperty(), Object.defineProperties()
+    Object.hasOwn()
+
+6. Math
+Alapvető számítások
+    abs()
+    round()
+    floor()
+    ceil()
+    trunc()
+    max(), min()
+    random()
+    pow()
+    sqrt()
+    log(), log10()
+    sin(), cos(), tan()
+
+7. Number
+Statikus metódusok
+    Number.isNaN()
+    Number.isFinite()
+    Number.isInteger()
+    Number.parseInt()
+    Number.parseFloat()
+Példány metódusok
+    toFixed()
+    toPrecision()
+    toExponential()
+
+8. JSON
+    JSON.stringify()
+    JSON.parse()
+
+9. Map
+    set()
+    get()
+    has()
+    delete()
+    clear()
+    forEach()
+    keys(), values(), entries()
+
+10. Set
+    add()
+    has()
+    delete()
+    clear()
+    forEach()
+    keys(), values(), entries()
+
+11. Error
+    name
+    message
+    stack

@@ -203,7 +203,7 @@ function runBootstrap() {
 // ********************************
 // Main orchestrator
 // ********************************
-async function loadIntoShadow(url, selector) {
+export async function loadIntoShadow(url, selector) {
 	let host = document.querySelector(selector);
 	if (!host) throw new Error("Host element not found: " + selector);
 
@@ -236,18 +236,3 @@ async function loadIntoShadow(url, selector) {
 		setTimeout(() => window._myWindow.triggerLoad(), 0);
 	}
 }
-
-async function createIndex(url, target, parent, template) {
-	let resp = await fetch(url);
-	if (!resp.ok) throw new Error(`Failed to fetch '${url}': ${resp.statusText}`);
-	let index = await resp.json();
-	let dummy = document.createElement('div');
-	for (let item of index) {
-		dummy.innerHTML += template.replace(/{{(\w+)}}+/g, (match, p1) => item[p1.toLowerCase()]);
-		let child = dummy.querySelector(':last-child');
-		child.addEventListener('click', e => loadIntoShadow(item.url, '#content').catch(err => console.err(err)));
-		parent.appendChild(child);
-	}
-}
-
-export { createIndex, loadIntoShadow };
