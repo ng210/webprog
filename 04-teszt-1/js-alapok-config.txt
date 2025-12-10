@@ -1,0 +1,7 @@
+Függvények: 8
+Modulok: 6
+Operátorok: 27
+Primitív típusok: 12
+Típuskonverzió: 18
+Értékek: 16
+Összetett típusok: 20

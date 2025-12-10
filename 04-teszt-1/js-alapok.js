@@ -324,7 +324,7 @@ const questions = [
       "Egy objektum, ami igaznak számít",
       "undefined"
     ],
-    "correct": 2
+    "correct": 0
   },
   {
     "id": 32,
