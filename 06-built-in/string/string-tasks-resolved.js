@@ -135,12 +135,21 @@ export default class StringTasks {
 		// RemoveChars - karakterek eltávolítása
 		// Bemenet: string | null, string | null
 		// Kimenet: string | null, text szöveg másolata a chars karakterei nélkül
-
+		if (!text || !chars) return text;
+		let result = ''
+		for (let ch of text) {
+			if (!chars.includes(ch)) {
+				result += ch
+			}
+		}
+		return result
 	}
 
 	hasWord(text, word) {
 		// hasWord(text, word)
 		// Igazat ad vissza, ha a word sztring szerepel a text sztringben.
+		return text.includes(word)
+		return text.split(' ').includes(word)
 	}
 
 	firstChar(text) {

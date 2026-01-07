@@ -1,7 +1,7 @@
 export default class StringTasks {
 	// Az alábbi feladatok megoldásához a következő metódusokra lesz szükség:
 	//   replace, replaceAll, toLowerCase, toUpperCase, startsWith, endsWith,
-	//	 indexOf, lastIndexOf, includes, substring, localeCompare, search
+	//	 indexOf, lastIndexOf, includes, substring, search
 	//   split, slice, trim, trimStart, trimEnd
 
 	isNullOrEmpty(text) {
