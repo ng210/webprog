@@ -13,9 +13,13 @@ export default class StringTasks {
 	}
 
 	useTemplate(template, context) {
+		// UseTemplate - sablon kitöltése
+		// Bemenet: string | null, objektum
+		// Kimenet: string | null, a template szöveg a context objektum
+		//			tulajdonságaival kitöltve
 		let result = template
 		for (const key in context) {
-			template = template.replaceAll(kex, context[key])
+			result = result.replaceAll(`{${key}}`, context[key])
 		}
 		return result
 	}
@@ -104,17 +108,33 @@ export default class StringTasks {
 		// 			fájlnév kiterjesztéssel, pl. mail/index.html, images/pic01.jpg
 		// 	- fregmens: oldal egy részére mutató hivatkozás, pl. section1, part2
 		// 	- query: kulcs=érték párok, & jellel elválasztva, pl. id=123&lang=hu
+		if (!url) return false
+		let ix = url.indexOf('://')
+		if (ix == -1) return false
+		const protocol = url.slice(0, ix).toLowerCase()
+		let rest = url.slice(ix + 3)
+		ix = rest.indexOf('/')
+		const [server, port] = (ix == -1 ? rest : rest.slice(0, ix)).split(':')
+		rest = rest.slice(ix + 1)
+		ix = rest.indexOf('#')
+		const path = (ix == -1 ? rest : rest.slice(0, ix))
+		rest = rest.slice(ix + 1)
+		ix = rest.indexOf('?')
+		const fragment = (ix == -1 ? rest : rest.slice(0, ix))
+		const query = (ix == -1 ? '' : rest.slice(ix + 1))
 
-	}
+		console.log(`protocol=[${protocol}], server=[${server}], port=[${port}], path=[${path}], fragment=[${fragment}], query=[${query}]`)
 
-	sanitize(text) {
-		// Bemenet: string | null
-		// Kimenet: string
+		if (!server) return false
+		if (protocol != 'http' && protocol != 'https' && protocol != 'ftp') return false
+
+		return true
 	}
 
 	removeChars(text, chars) {
-		// RemoveChars(text, chars)
-		// Eltávolítja a chars sztringben szereplő karaktereket a text sztringből.
+		// RemoveChars - karakterek eltávolítása
+		// Bemenet: string | null, string | null
+		// Kimenet: string | null, text szöveg másolata a chars karakterei nélkül
 
 	}
 

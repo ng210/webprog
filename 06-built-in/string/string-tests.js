@@ -1,5 +1,5 @@
 import Test from '../../lib/test/test.js'
-import StringTasks from './string-tasks.js'
+import StringTasks from './string-tasks-resolved.js'
 
 const tasks = new StringTasks()
 
@@ -7,6 +7,23 @@ export default class StringTests extends Test {
     async testIsNullOrEmpty1() { this.isTrue("isNullOrEmpty('')", tasks.isNullOrEmpty('')) }
 	async testIsNullOrEmpty2() { this.isTrue("isNullOrEmpty(null)", tasks.isNullOrEmpty(null)) }
 	async testIsNullOrEmpty3() { this.isFalse("isNullOrEmpty('Hello')", tasks.isNullOrEmpty('Hello')) }
+
+	async testUseTemplate1() {
+        this.isEqual(`useTemplate('<{tag} id="{id}" title="{hint}"/>', {"id":"btnOk", "tag":"button", "hint":"Click Ok"})`,
+            tasks.useTemplate('<{tag} id="{id}" title="{hint}"/>', {"id":"btnOk", "tag":"button", "hint":"Click Ok"}),
+            '<button id="btnOk" title="Click Ok"/>') }
+	async testUseTemplate2() {
+        this.isEqual(`useTemplate('<{tag} id="{id}" title="{hint}"/>', {})`,
+            tasks.useTemplate('<{tag} id="{id}" title="{hint}"/>', {}),
+            '<{tag} id="{id}" title="{hint}"/>') }
+	async testUseTemplate3() {
+        this.isEqual(`useTemplate('', {})`,
+            tasks.useTemplate('', {}),
+            '') }
+	async testUseTemplate4() {
+        this.isEqual(`useTemplate(null, {})`,
+            tasks.useTemplate(null, {}),
+            null) }
 
 	async testToCapitalInitial1() { this.isEqual("toCapitalInitial('')", tasks.toCapitalInitial(''), '') }
 	async testToCapitalInitial2() { this.isEqual("toCapitalInitial(null)", tasks.toCapitalInitial(null), null) }
@@ -40,6 +57,17 @@ export default class StringTests extends Test {
 	async testReplaceFirstWord4() { this.isEqual("replaceFirstWord('', 'That')", tasks.replaceFirstWord('', 'That'), '') }
 	async testReplaceFirstWord5() { this.isEqual("replaceFirstWord(null, 'That')", tasks.replaceFirstWord(null, 'That'), null) }
 
+    async testIsUrl1() { this.isTrue("isUrl('https://localhost:5505/api/index.html#top?uid=root')", tasks.isUrl('https://localhost:5505/api/index.html#top?uid=root')) }
+    async testIsUrl2() { this.isTrue("isUrl('http://localhost/api/index?uid=root')", tasks.isUrl('http://localhost/api/index?uid=root')) }
+    async testIsUrl3() { this.isTrue("isUrl('http://localhost/index?uid=root')", tasks.isUrl('http://localhost/index?uid=root')) }
+    async testIsUrl4() { this.isTrue("isUrl('https://localhost:5505/api/index.html')", tasks.isUrl('https://localhost:5505/api/index.html')) }
+    async testIsUrl5() { this.isTrue("isUrl('https://localhost:5505/api')", tasks.isUrl('https://localhost:5505/api')) }
+    async testIsUrl6() { this.isTrue("isUrl('https://localhost:5505')", tasks.isUrl('https://localhost:5505')) }
+    async testIsUrl7() { this.isTrue("isUrl('https://localhost')", tasks.isUrl('https://localhost')) }
+    async testIsUrl7() { this.isFalse("isUrl('https:///api')", tasks.isUrl('https://localhost')) }
+    async testIsUrl7() { this.isFalse("isUrl('localhost:5505/api/index.html#top?uid=root')", tasks.isUrl('localhost:5505/api/index.html#top?uid=root')) }
+    async testIsUrl8() { this.isFalse("isUrl('')", tasks.isUrl('')) }
+    async testIsUrl9() { this.isTrue("isUrl('https:///api/index?uid=root')", tasks.isUrl('https:///api/index?uid=root')) }
 
     async test_removeChars1() { this.isEqual("removeChars('Hello', 'hl')", tasks.removeChars('Hello', 'hl'), 'Heo') }
     async test_removeChars2() { this.isEqual("removeChars('JavaScript', 'a')", tasks.removeChars('JavaScript', 'a'), 'JvScript') }
