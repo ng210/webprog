@@ -122,13 +122,37 @@ export default class StringTasks {
 		ix = rest.indexOf('?')
 		const fragment = (ix == -1 ? rest : rest.slice(0, ix))
 		const query = (ix == -1 ? '' : rest.slice(ix + 1))
-
-		console.log(`protocol=[${protocol}], server=[${server}], port=[${port}], path=[${path}], fragment=[${fragment}], query=[${query}]`)
-
+		//console.log(`protocol=[${protocol}], server=[${server}], port=[${port}], path=[${path}], fragment=[${fragment}], query=[${query}]`)
 		if (!server) return false
 		if (protocol != 'http' && protocol != 'https' && protocol != 'ftp') return false
-
 		return true
+	}
+
+	sanitize(text) {
+		// Bemenet: string | null
+		// Kimenet: string | null, levágja a text elején és végén a white-space karaktereket,
+		// 			és a HTML speciális karaktereit átalakítva visszaadja:
+		// 			<  -> &lt;
+		// 			>  -> &gt;
+		// 			&  -> &amp;
+		// 			"  -> &quot;
+		// 			'  -> &#39;
+		if (!text) return text
+		text = text.trim()
+		let result = ''
+		for (let i=0; i<text.length; i++) {
+			let ch = text.charAt(i)
+			switch (ch) {
+				case `<`: ch = '&lt;'; break;
+				case `>`: ch = '&gt;'; break;
+				case `&`: ch = '&amp;'; break;
+				case `"`: ch = '&quot;'; break;
+				case `'`: ch = '&#39;'; break;
+			}
+			result += ch
+		}
+
+		return result
 	}
 
 	removeChars(text, chars) {
@@ -146,101 +170,247 @@ export default class StringTasks {
 	}
 
 	hasWord(text, word) {
-		// hasWord(text, word)
-		// Igazat ad vissza, ha a word sztring szerepel a text sztringben.
-		return text.includes(word)
+		// HasWord - szó keresése
+		// Bemenet: string | null, string | null
+		// Kimenet: boolean, igaz, ha a word sztring szerepel a text sztringben
 		return text.split(' ').includes(word)
 	}
 
 	firstChar(text) {
-		// firstChar(text)
-		// Visszaadja az első karaktert vagy üres sztringet.
+		// FirstChar - első karakter lekérdezése
+		// Bemenet: string | null
+		// Kimenet: string | null, az első karakter vagy üres sztring vagy null
+		if (!text) return text
+		return text.charAt(0)
 	}
 
 	lastChar(text) {
-		// lastChar(text)
-		// Visszaadja az utolsó karaktert vagy üres sztringet.
+		// LastChar - utolsó karakter lekérdezése
+		// Bemenet: string | null
+		// Kimenet: string | null, az utolsó karakter vagy üres sztring vagy null
+		if (!text) return text
+		return text.charAt(text.length-1)
 	}
 
 	startsWithIgnoreCase(text, prefix) {
-		// startsWithIgnoreCase(text, prefix)
-		// Igazat ad vissza, ha text a prefix szöveggel kezdődik, kis- és nagybetű megkülönböztetés nélkül.
+		// StartsWithIgnoreCase - startsWith kis- és nagybetű megkülönböztetés nélkül
+		// Bemenet: string | null, string | null
+		// Kimenet: boolean, igaz, ha text a prefix szöveggel kezdődik, kis- és nagybetű megkülönböztetés nélkül.
+		if (text == null || prefix == null) return false
+		return text.toLowerCase().startsWith(prefix.toLowerCase())
 	}
 
 	endsWithIgnoreCase(text, suffix) {
-		// endsWithIgnoreCase(text, suffix)
-		// Igazat ad vissza, ha text a suffix szöveggel végződik, kis- és nagybetű megkülönböztetés nélkül.
+		// EndsWithIgnoreCase - endsWith kis- és nagybetű megkülönböztetés nélkül
+		// Bemenet: string | null, string | null
+		// Kimenet: boolean, igaz, ha text a suffix szöveggel végződik, kis- és nagybetű megkülönböztetés nélkül
+		if (text == null || suffix == null) return false
+		return text.toLowerCase().endsWith(suffix.toLowerCase())
 	}
 
 	getFirstWord(text) {
-		// getFirstWord(text)
-		// Visszaadja a text szövegből az elejétől az első szóközig tartó részét.
+		// GetFirstWord - első szó lekérdezése
+		// Bemenet: string | null
+		// Kimenet: string | null, a text szöveg az elejétől az első szóközig tartó része
+		if (!text) return text
+		text = text.trim()
+		let ix = text.indexOf(' ')
+		if (ix == -1) ix = text.length
+		return text.slice(0, ix)
 	}
 
 	getLastWord(text) {
-		// getLastWord(text)
-		// Visszaadja a text szövegből az utolsó szóköztől a végéig tartó részét.
+		// GetLastWord - utolsó szó lekérdezése
+		// Bemenet: string | null
+		// Kimenet: string | null, a text szöveg az utolsó szóköztől a végéig tartó része
+		if (!text) return text
+		text = text.trim()
+		let ix = text.lastIndexOf(' ')
+		return text.slice(ix+1)
 	}
 
 	skipChars(text, chars) {
-		// skipChars(text, chars)
-		// Visszaadja az első karakter indexét a text szövegben, amely nincsen benne a chars szövegben.
+		// SkipChars - karakterek átugrása
+		// Bemenet: string | null, string | null
+		// Kimenet: number, text első olyan karakterének indexe, amely nincsen benne a chars szövegben
+		if (text == null || chars == null) return -1
+		if (chars == '') return 0
+		let ix = 0
+		for (;ix < text.length; ix++) {
+			if (!chars.includes(text.charAt(ix))) break
+		}
+		return ix
 	}
 
-	searchChars(text, chars) {
-		// searchChars(text, chars)
-		// Visszaadja az első karakter indexét a text szövegben, amely már benne van a chars szövegben.
+	seekChars(text, chars) {
+		// SeekChars - karakterek keresése
+		// Bemenet: string | null, string | null
+		// Kimenet: number,	a text első olyan karakterének indexe, amely benne van a chars szövegben
+		if (text == null || chars == null) return -1
+		if (chars == '') return 0
+		let ix = 0
+		for (;ix < text.length; ix++) {
+			if (chars.includes(text.charAt(ix))) break
+		}
+		return ix
 	}
 
 	toKeyValuePairs(text) {
-		// toKeyValuePairs(text)
-		// A text szövegben található kulcs érték párokat adja vissza egy objektumban. A kulcs és értékek között egyenlőségjel, a párok között pontosvessző található: kulcs1=érték1;kulcs2=érték2.
+		// ToKeyValuePairs - kulcs-érték párok szövegből
+		// Bemenet: string | null, kulcs érték párok szövegként: kulcs1=érték1;kulcs2=érték2.
+		// Kimenet: object, a text szövegben található kulcs érték párokból
+		if (text == null) return null
+		let keyValues = {}
+		if (!text) return keyValues
+		let tokens = text.split(';')
+		for (let token of tokens) {
+			let ix = token.indexOf('=')
+			let key = '', value = null
+			if (ix != -1) {
+				key = token.slice(0, ix).trim()
+				value = token.slice(ix+1)
+				if (value == '') value = null
+			} else {
+				key = token
+			}
+			keyValues[key] = value
+		}
+		return keyValues
 	}
 
 	fromKeyValuePairs(obj) {
-		// fromKeyValuePairs(obj)
-		// Az obj objektum kulcs-érték párjait szövegként adja vissza. A párok közé pontosvesszőt, a kulcs és érték közé egyenlőség jelet szúr be.
+		// FromKeyValuePairs - objektum mint kulcs-érték párok szöveggé
+		// Bemenet: object
+		// Kimenet: string, obj kulcs-érték párjai szövegként, a párok között pontosvessző, a kulcs és érték között egyenlőségjel
+		let text = ''
+		for (let key in obj) {
+			text += key + '='
+			if (obj[key] != null) text += obj[key]
+			text += ';'
+		}
+		return text.slice(0, -1)
 	}
 
 	toCamelCase(text) {
-		// toCamelCase(text)
-		// A text szöveget szóközök mentén szétvágja. Az így kapott szavakat, az első szó kivételével, nagy kezdőbetűvel összefűzi egy új sztringbe. A szavak többi betűje mindig kicsi.
+		// ToCamelCase - camelCase formátum
+		// Bemenet: string | null
+		// Kimenet: string | null, text szöveg szavait nagy kezdőbetűvel összefűzi, a többi betű kicsi, az első szó kezdőbetűje kisbetű
+		if (!text) return text
+		let arr = text.trim().split(' ')
+		let isFirst = true
+		for (let i=0; i<arr.length; i++) {
+			let word = arr[i].toLowerCase()
+			if (word != '') {
+				if (!isFirst) {
+					word = word.charAt(0).toUpperCase() + word.slice(1)
+				}
+				isFirst = false
+			}
+			arr[i] = word
+		}
+		return arr.join('')
 	}
 
-	joinWithChar(text, char) {
-		// joinWithChar(text, char)
-		// A text szöveget szóközök mentén szétvágja, majd a char karakter beszúrásával összefűzi.
+	toUpper(text, chars) {
+		// ToUpper - karakterek nagybetűssé tétele
+		// Bemenet: string | null, string | null
+		// Kimenet: string | null, textből új szöveg, a chars szövegben is megtalálható karaktereket nagybetűssé alakítja
+		if (!text || !chars) return text
+		let result = ''
+		for (let ch of text) {
+			if (chars.includes(ch)) ch = ch.toUpperCase()
+			result += ch
+		}
+		return result
 	}
 
-	toUpper(text, char) {
-		// toUpper(text, char)
-		// Egy új sztringet hoz létre a text szövegből úgy, hogy azokat a karaktereket, amelyek a char szövegben szerepelnek, nagybetűsen szúrja be, azokat, amelyek nem szerepelnek, változatlanul másolja át.
-	}
-
-	toLower(text, char) {
-		// toLower(text, char)
-		// Egy új sztringet hoz létre a text szövegből úgy, hogy azokat a karaktereket, amelyek a char szövegben szerepelnek, kisbetűsen szúrja be, azokat, amelyek nem szerepelnek, változatlanul másolja át.
+	toLower(text, chars) {
+		// ToLower - karakterek kisbetűssé tétele
+		// Bemenet: string | null, string | null
+		// Kimenet: string | null, textből új szöveg, a chars szövegben is megtalálható karaktereket kisbetűssé alakítja
+		if (!text || !chars) return text
+		chars = chars.toUpperCase()
+		let result = ''
+		for (let ch of text) {
+			if (chars.includes(ch.toUpperCase())) ch = ch.toLowerCase()
+			result += ch
+		}
+		return result
 	}
 
 	getCommand(text) {
-		// getCommand(text)
-		// Kiolvas egy parancsot a text szövegből. A parancs formátuma a következő:
-		// parancs(paraméter1, paraméter2, …) 
-		// A függvény visszatérési értéke egy tömb, amelynek első eleme a parancs, a további elemei pedig a parancs paraméterei. A felesleges szóközöket törli.
+		// GetCommand - parancs kiolvasása
+		// Bemenet: string | null, formátum: parancs(paraméter1, paraméter2, …)
+		// Kimenet: array | null, a tömb elemei: parancs, paraméter1, paraméter2, … felesleges szóközök nélkül
+		if (!text) return null
+		let start = 0
+		let end = text.indexOf('(')
+		let result = [text.slice(start, end).trim()]
+		if (end != -1) {
+			let start = end + 1
+			end = text.indexOf(')')
+			let arr = text.slice(start, end).split(',')
+			for (let i=0; i<arr.length; i++) {
+				result.push(arr[i].trim())
+			}
+		}
+		return result
 	}
 
 	normalizeSpaces(text) {
-		// normalizeSpaces(text)
-		// A többszörös szóköz karaktereket egyetlen szóközre cseréli.
+		// NormalizeSpaces - szóközök normalizálása
+		// Bemenet: string | null
+		// Kimenet: string | null, a többszörös szóköz karaktereket helyett csak egyetlen szóköz
+		if (!text) return text
+		let result = ''
+		let hasSpace = false
+		for (let ch of text) {
+			if (ch != ' ') {
+				if (hasSpace) {
+					result += ' '
+				}
+				result += ch
+				hasSpace = false
+			} else {
+				if (!hasSpace) {
+					hasSpace = true
+				}
+			}
+		}
+		if (hasSpace) result += ' '
+		return result
 	}
 
 	formatNumber(n, decimals) {
-		// formatNumber(n, decimals)
-		// Az n számot decimals darab tizedesjeggyel ábrázolva sztringként adja vissza. Az értéket nem kerekíti, hanem a felesleges tizedesjegyeket levágja.
+		// FormatNumber - szám formázása
+		// Bemenet: number, number
+		// Kimenet: string, n szám stringként, decimals darab tizedesjeggyel, a nem ábrázolható tizedesjegyeket levágja
+		if (isNaN(n) || n == null) return null
+		let text = n + '';
+		let arr = (text).split('.')
+		if (arr.length == 1) {
+			arr.push(0)
+		}
+		let result = arr[0]
+		if (decimals > 0) {
+			result += '.' + (arr[1] + '0000000000').slice(0, decimals)
+		}
+		return result
 	}
 
 	formatDate(y, m, d) {
-		// formatDate(y, m, d)
-		// A paraméterként kapott év, hó és nap értékekből egy dátum sztringet állít elő, a következő formátumban: yyyy-mm-dd. Tehát az évet négy, a hónapot és a napot két számjeggyel jeleníti meg. Érvénytelen paraméterekre null értéket ad vissza.
+		// FormatDate - dátum formázása
+		// Bemenet: number, number, number
+		// Kimenet: string | null, az év, hó és nap számokból a következő formátumú szöveg: éééé-hh-nn
+		if (!y || !m || !d) return null
+		const validDays = [31,28,31,30,31,30,31,31,30,31,30,31]
+		if (y < 1) return null
+		if (m < 1 || m > 12) return null
+		if (d < 1 || d > validDays[m-1]) return null
+
+		y = ('000'+y).slice(-4)
+		m = ('0'+m).slice(-2)
+		d = ('0'+d).slice(-2)
+		return `${y}-${m}-${d}`
 	}
 }

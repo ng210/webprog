@@ -4,10 +4,10 @@
 
 body {
     background-color: #aec;
+    margin: 0;
+    padding: 1em;
     width: 100vw;
     height: 100vh;
-    margin: 0px;
-    padding: 1em;
 }
 
 h1 {

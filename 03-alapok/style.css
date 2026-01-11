@@ -4,10 +4,9 @@
 
 body {
     background: radial-gradient(ellipse at center, white, gold, silver);
+    margin: 0;
     width: 100vw;
     height: 100vh;
-    margin: 0px;
-    padding: 0em;
 }
 
 main {
@@ -42,4 +41,9 @@ h1 {
     background-color: #8888;
     border-radius: 2em;
     box-shadow: 2px 2px 16px #0008;
+}
+
+console {
+    position: relative;
+    top: -40%;
 }

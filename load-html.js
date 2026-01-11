@@ -215,8 +215,8 @@ async function loadIntoShadow(url, selector) {
 	absolutizeAttributes(doc, base);
 	await injectStyles(doc, shadow);
 
-	const container = document.createElement("div");
-	container.className = 'body';
+	const container = document.createElement("body");
+	//container.className = 'body';
 	container.innerHTML = doc.body.innerHTML;
 	container.style.height = '100%';
 	shadow.appendChild(container);
@@ -227,6 +227,7 @@ async function loadIntoShadow(url, selector) {
 
 	const shadowRoot = createShadowRootAPI(shadow);
 	globalThis.__shadowRoot__ = shadowRoot; // make available globally
+	shadowRoot.body = container
 
 	runBootstrap(shadow);
 	await runInlineScripts(doc, shadowRoot);
