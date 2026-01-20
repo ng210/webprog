@@ -27,11 +27,16 @@ export default class StringTests extends Test {
         this.isEqual(`useTemplate(null, {})`,
             tasks.useTemplate(null, {}),
             null) }
+	async testUseTemplate5() {
+        this.isEqual(`useTemplate('<{tag]/>', null)`,
+            tasks.useTemplate('<{tag]/>', null),
+            '<{tag]/>') }
     //#endregion
     //#region CapitalInitial
 	async testToCapitalInitial1() { this.isEqual("toCapitalInitial('')", tasks.toCapitalInitial(''), '') }
 	async testToCapitalInitial2() { this.isEqual("toCapitalInitial(null)", tasks.toCapitalInitial(null), null) }
 	async testToCapitalInitial3() { this.isEqual("toCapitalInitial('hello')", tasks.toCapitalInitial('hello'), 'Hello') }
+    async testToCapitalInitial4() { this.isEqual("toCapitalInitial('Hello')", tasks.toCapitalInitial('Hello'), 'Hello') }
     //#endregion
     //#region ContainsChar
 	async testContainsChar1() { this.isTrue("containsChar('Hello World!', 'H')", tasks.containsChar('Hello World!', 'H')) }
@@ -44,8 +49,11 @@ export default class StringTests extends Test {
     //#endregion
     //#region GetExtension
 	async testGetExtension1() { this.isEqual("getExtension('index.html')", tasks.getExtension('index.html'), 'html') }
-	async testGetExtension2() { this.isEqual("getExtension('readme')", tasks.getExtension('readme'), '') }
-	async testGetExtension3() { this.isEqual("getExtension('index.')", tasks.getExtension('index.'), '') }
+    async testGetExtension2() { this.isEqual("getExtension('main.index.html')", tasks.getExtension('main.index.html'), 'html') }
+	async testGetExtension3() { this.isEqual("getExtension('readme')", tasks.getExtension('readme'), '') }
+	async testGetExtension4() { this.isEqual("getExtension('index.')", tasks.getExtension('index.'), '') }
+	async testGetExtension5() { this.isEqual("getExtension(null)", tasks.getExtension(null), null) }
+    async testGetExtension6() { this.isEqual("getExtension('')", tasks.getExtension(''), null) }
     //#endregion
     //#region IsPalindrom
 	async testIsPalindrom1() { this.isTrue("isPalindrom('racecar')", tasks.isPalindrom('racecar')) }
@@ -54,10 +62,12 @@ export default class StringTests extends Test {
     //#endregion
     //#region Tokenize
 	async testTokenize1() { this.isEqual("tokenize('This\tis a\ttest!', ' \\t\\n')", tasks.tokenize('This\tis a\ttest!', ' \t\n'), ['This', 'is', 'a', 'test!']) }
-	async testTokenize2() { this.isEqual("tokenize('This is a test!', '\\t\\n')", tasks.tokenize('This is a test!', '\t\n'), ['This is a test!']) }
-	async testTokenize3() { this.isEqual("tokenize('This\tis a\ttest!', '')", tasks.tokenize('This\tis a\ttest!', ''), ['This\tis a\ttest!']) }
-	async testTokenize4() { this.isEqual("tokenize('This\tis a\ttest!', null)", tasks.tokenize('This\tis a\ttest!', null), ['This\tis a\ttest!']) }
-	async testTokenize5() { this.isEqual("tokenize(null, null)", tasks.tokenize(null, null), []) }
+    async testTokenize2() { this.isEqual("tokenize('This\tis\n', '\\t\\n')", tasks.tokenize('This\tis\n', '\t\n'), ['This', 'is']) }
+	async testTokenize3() { this.isEqual("tokenize('This is a test!', '\\t\\n')", tasks.tokenize('This is a test!', '\t\n'), ['This is a test!']) }
+	async testTokenize4() { this.isEqual("tokenize('This\tis a\ttest!', '')", tasks.tokenize('This\tis a\ttest!', ''), ['This\tis a\ttest!']) }
+	async testTokenize5() { this.isEqual("tokenize('This\tis a\ttest!', null)", tasks.tokenize('This\tis a\ttest!', null), ['This\tis a\ttest!']) }
+	async testTokenize6() { this.isEqual("tokenize(null, null)", tasks.tokenize(null, null), []) }
+	async testTokenize7() { this.isEqual("tokenize('', ' \\t\\n')", tasks.tokenize('', ' \\t\\n'), []) }
     //#endregion
     //#region ReplaceFirstWord
 	async testReplaceFirstWord1() { this.isEqual("replaceFirstWord('This\tis a\ttest!', 'That')", tasks.replaceFirstWord('This\tis a\ttest!', 'That'), 'That\tis a\ttest!') }
@@ -150,12 +160,12 @@ export default class StringTests extends Test {
     async test_skipChars6() { this.isEqual("skipChars('  Hello', ' Hello')", tasks.skipChars('  Hello', ' Hello'), 7) }
     //#endregion
     //#region SeekChars
-    async test_seekChars1() { this.isEqual("seekChars('  Hello', ' \t\n\r')", tasks.seekChars('  Hello', ' \t\n\r'), 0) }
+    async test_seekChars1() { this.isEqual("seekChars('  Hello', ' \\t\\n\\r')", tasks.seekChars('  Hello', ' \t\n\r'), 0) }
     async test_seekChars2() { this.isEqual("seekChars('  Hello', 'Hell')", tasks.seekChars('  Hello', 'Hell'), 2) }
-    async test_seekChars3() { this.isEqual("seekChars('  Hello', null)", tasks.seekChars('  Hello', null), -1) }
-    async test_seekChars4() { this.isEqual("seekChars(null, '')", tasks.seekChars(null, ''), -1) }
-    async test_seekChars5() { this.isEqual("seekChars('  Hello', '')", tasks.seekChars('  Hello', ''), 0) }
-    async test_seekChars6() { this.isEqual("seekChars('  Hello', 'Oo')", tasks.seekChars('  Hello', 'Oo'), 6) }
+    async test_seekChars3() { this.isEqual("seekChars('Hello ', ' \\t\\n')", tasks.seekChars('Hello ', ' \t\n'), 5) }
+    async test_seekChars4() { this.isEqual("seekChars('Hello', 'O')", tasks.seekChars('Hello', 'O'), 5) }
+    async test_seekChars5() { this.isEqual("seekChars('  Hello', null)", tasks.seekChars('  Hello', null), -1) }
+    async test_seekChars6() { this.isEqual("seekChars(null, '')", tasks.seekChars(null, ''), -1) }
     //#endregion
     //#region ToKeyValuePairs
     async test_toKeyValuePairs1() { this.isEqual("toKeyValuePairs('kulcs1=érték1;kulcs2=érték2')", tasks.toKeyValuePairs('kulcs1=érték1;kulcs2=érték2'), { "kulcs1": "érték1", "kulcs2": "érték2" }) }
@@ -210,11 +220,12 @@ export default class StringTests extends Test {
     //#endregion
     //#region FormatNumber
     async test_formatNumber1() { this.isEqual("formatNumber(12.23, 4)", tasks.formatNumber(12.23, 4), '12.2300') }
-    async test_formatNumber2() { this.isEqual("formatNumber(0.23, 1)", tasks.formatNumber(0.23, 1), '0.2') }
-    async test_formatNumber3() { this.isEqual("formatNumber(12, 2)", tasks.formatNumber(12, 2), '12.00') }
-    async test_formatNumber4() { this.isEqual("formatNumber(12.23, 0)", tasks.formatNumber(12.23, 0), '12') }
-    async test_formatNumber5() { this.isEqual("formatNumber(null, 0)", tasks.formatNumber(null, 0), null) }
-    async test_formatNumber6() { this.isEqual("formatNumber(NaN, 0)", tasks.formatNumber(NaN, 0), null) }
+    async test_formatNumber2() { this.isEqual("formatNumber(12., 2)", tasks.formatNumber(12., 2), '12.00') }
+    async test_formatNumber3() { this.isEqual("formatNumber(0.23, 1)", tasks.formatNumber(0.23, 1), '0.2') }
+    async test_formatNumber4() { this.isEqual("formatNumber(12, 2)", tasks.formatNumber(12, 2), '12.00') }
+    async test_formatNumber5() { this.isEqual("formatNumber(12.23, 0)", tasks.formatNumber(12.23, 0), '12') }
+    async test_formatNumber6() { this.isEqual("formatNumber(null, 0)", tasks.formatNumber(null, 0), null) }
+    async test_formatNumber7() { this.isEqual("formatNumber(NaN, 0)", tasks.formatNumber(NaN, 0), null) }
     //#endregion
     //#region FormatDate
     async test_formatDate1() { this.isEqual("formatDate(2025, 12, 15)", tasks.formatDate(2025, 12, 15), '2025-12-15') }
