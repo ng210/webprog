@@ -12,13 +12,13 @@ console {
     color:#208040;
 }
 
-console>.border {
+.console-border {
     width: 100%;
     height: 4px;
     background-color: #ffffff80;
     cursor:n-resize;
 }
-console>.content {
+.console-content {
     width: 100%;
     height: 100%;
     padding: 0.5em;
@@ -29,13 +29,13 @@ console>.content {
     color: #80c0a0;
 }
 
-.notation {
+.console-notation {
     font-size: smaller;
     font-weight: bold;
     margin-right: 0.5em;
 }
 
-.code {
+.console-code {
     line-height: 2.0em;
     padding: 0.2em;
     background-color: #20304080;
@@ -43,7 +43,7 @@ console>.content {
     color: #a0c0ff;
 }
 
-console>.content>button {
+.console-content>button {
     margin: 0.5em;
     font-size: larger;
 }
