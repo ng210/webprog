@@ -4,5 +4,6 @@
     { "name":"Alapok #1", "url":"./03-alapok/index.html" },
     { "name":"Teszt-1", "url":"./04-teszt-1/index.html" },
     { "name":"String feladatok", "url":"./06-built-in/string/index.html" },
-    { "name":"Array feladatok", "url":"./06-built-in/array/index.html" }
+    { "name":"Array feladatok", "url":"./06-built-in/array/index.html" },
+    { "name":"Array tesztek", "url":"./Gyakorlás/array/index.html" }
 ]
