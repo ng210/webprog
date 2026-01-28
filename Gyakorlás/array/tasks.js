@@ -3,8 +3,10 @@ export default class Tasks {
     // Felhasználókat leíró objektum (id, name, email) tömbből hozz létre HTML <tr> sorokat három <td> cellával.
     // Bemenet: user objektum [{ id: number, name: string, email: string }, ...]
     // Kimenet: HTML string '<tr><td>...</td><td>...</td><td>...</td></tr><tr>...'
-    generateTable(user) {
-        return '';
+    generateTable(users) {
+        return users.map(
+            user => `<tr><td>${user.Id}</td><td>${user.Name}</td><td><td>${user.Email}</td>`
+        )
     }
 
     // 2. Aktív felhasználók szűrése
@@ -12,7 +14,7 @@ export default class Tasks {
     // Bemenet: users lista [{ isActive: boolean, ... }, ...]
     // Kimenet: aktív felhasználók listája
     getActiveUsers(users) {
-        return [];
+
     }
 
     // 3. Navigációs menüpontok generálása

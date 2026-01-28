@@ -17,6 +17,9 @@ nav {
 }
 
 section {
+    display: block;
+    height: 2em;
+    margin: 1em;
     border-radius: 1em;
-    background-color: #2484;
+    background-color: #24f8;
 }
