@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0em;
+    color: #fff;
+    text-shadow: 0px 0px 16px #fff8;
+    background-color: #000;
+}
+
+nav {
+    font-size: large;
+}
+
+section {
+    border-radius: 1em;
+    background-color: #2484;
+}

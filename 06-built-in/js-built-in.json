@@ -1,0 +1,166 @@
+{
+    "String": {
+        "Keresés, vizsgálat": [
+            "includes()",
+            "startsWith()",
+            "endsWith()",
+            "indexOf()",
+            "lastIndexOf()",
+            "match()",
+            "matchAll()",
+            "search()",
+            "localeCompare()"
+        ],
+        "Módosítás, átalakítás": [
+            "replace()",
+            "replaceAll()",
+            "toLowerCase()",
+            "toUpperCase()",
+            "slice()",
+            "substring()",
+            "trim(), trimStart(), trimEnd()",
+            "split()"
+        ]
+    },
+    "Array": {
+        "Lekérdezés": [
+            "includes()",
+            "indexOf()",
+            "lastIndexOf()",
+            "find()",
+            "findIndex()",
+            "some()",
+            "every()"
+        ],
+        "Iterálás": [
+            "forEach()",
+            "map()",
+            "filter()",
+            "reduce(), reduceRight()"
+        ],
+        "Módosítás": [
+            "push(), pop()",
+            "shift(), unshift()",
+            "splice()",
+            "sort()",
+            "reverse()",
+            "fill()"
+        ],
+        "Új tömb létrehozása": [
+            "slice()",
+            "concat()",
+            "flat(), flatMap()"
+        ]
+    },
+    "Date": {
+        "Lekérdezés": [
+            "getFullYear()",
+            "getMonth()",
+            "getDate()",
+            "getDay()",
+            "getHours(), getMinutes(), getSeconds(), getMilliseconds()",
+            "getTime()",
+            "getTimezoneOffset()"
+        ],
+        "Beállítás": [
+            "setFullYear()",
+            "setMonth()",
+            "setDate()",
+            "setHours(), setMinutes(), setSeconds(), setMilliseconds()",
+            "setTime()"
+        ],
+        "Konverzió": [
+            "toISOString()",
+            "toLocaleString()",
+            "toLocaleDateString()",
+            "toLocaleTimeString()",
+            "toJSON()"
+        ]
+    },
+    "RegExp": {
+        "Keresés": [
+            "test()",
+            "exec()"
+        ]
+    },
+    "Math": {
+        "Alapvető számítások": [
+            "abs()",
+            "round()",
+            "floor()",
+            "ceil()",
+            "trunc()",
+            "max(), min()",
+            "random()",
+            "pow()",
+            "sqrt()",
+            "log(), log10()",
+            "sin(), cos(), tan()"
+        ]
+    },
+    "Number": {
+        "Statikus metódusok": [
+            "Number.isNaN()",
+            "Number.isFinite()",
+            "Number.isInteger()",
+            "Number.parseInt()",
+            "Number.parseFloat()"
+        ],
+        "Átalakítás": [
+            "toFixed()",
+            "toPrecision()",
+            "toExponential()"
+        ]
+    },
+    "JSON": {
+        "Statikus metódusok": [
+            "JSON.stringify()",
+            "JSON.parse()"
+        ]
+    },
+    "Map": {
+        "Beállítás": [
+            "set()",
+            "delete()",
+            "clear()"
+        ],
+        "Lekérdezés": [
+            "get()",
+            "has()",
+            "keys(), values(), entries()"
+        ],
+        "Iterálás": [
+            "forEach()"
+        ]
+    },
+    "Set": {
+        "Beállítás": [
+            "add()",
+            "delete()",
+            "clear()"
+        ],
+        "Lekérdezés": [
+            "has()",
+            "keys(), values(), entries()"
+        ],
+        "Iterálás": [
+            "forEach()"
+        ]
+    },
+    "Error": {
+        "Tulajdonságok": [
+            "name",
+            "message",
+            "stack"
+        ]
+    },
+    "Object": {
+        "Statikus metódusok": [
+            "Object.keys()",
+            "Object.values()",
+            "Object.entries()",
+            "Object.defineProperty(), Object.defineProperties()",
+            "Object.hasOwn()"
+        ]
+    }
+}
