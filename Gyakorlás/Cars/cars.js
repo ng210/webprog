@@ -1,11 +1,9 @@
 const _carData =
 `brand;model;type;price;engine;power;topSpeed;img
-Tesla;Model S;Sedan;    79999; Electric;  670;  250;https://evadatbazis.hu/wp-content/uploads/2024/04/Tesla_Model_S_2016-01@2x.jpg
-
+Tesla;Model S;Sedan;79999; Electric;670;250;https://evadatbazis.hu/wp-content/uploads/2024/04/Tesla_Model_S_2016-01@2x.jpg
 BMW;3 Series;Sedan;45900;Petrol;320;250;https://crdms.images.consumerreports.org/c_lfill,w_563,q_auto,f_auto/prod/cars/chrome/white/2023BMC220012_1280_01
 Audi;A3;Hatchback;29900;Diesel;150;220;https://imgd.aeplcdn.com/370x208/n/cw/ec/47030/new-a3-exterior-right-front-three-quarter-6.jpeg
 Mercedes-Benz;E-Class;Sedan;54900;Hybrid;292;250;https://images.pexels.com/photos/17233277/pexels-photo-17233277.jpeg
-
 Porsche;911;Coupe;99900;Petrol;450;300;https://static0.carbuzzimages.com/wordpress/wp-content/uploads/2024/03/1062514-13.jpg
 Toyota;Prius;Hybrid;24900;Hybrid;122;180;https://global.toyota/pages/news/images/2022/11/16/1345/001.jpg
 Ford;Mustang;Coupe;55900;Petrol;450;250;https://imgd.aeplcdn.com/664x374/cw/ec/23766/Ford-Mustang-Exterior-126883.jpg

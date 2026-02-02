@@ -1,5 +1,21 @@
 import Test from '../../lib/test/test.js'
 import Tasks from './tasks.js'
+// import Tasks from './diakok/Fazekas_Bertalan_tasks.js'
+// import Tasks from './diakok/Horvath_Gabor_tasks.js'
+// import Tasks from './diakok/szakaly_balint_tasks.js'
+// import Tasks from './diakok/tasks-antalarmin.js'
+// import Tasks from './diakok/tasks-Kevin.js'
+// import Tasks from './diakok/tasks-Kövi-Richárd.js'
+// import Tasks from './diakok/tasks-ktm.js'
+// import Tasks from './diakok/tasks-na.js'
+// import Tasks from './diakok/tasks-patrik.js'
+// import Tasks from './diakok/tasks-szabi.js'
+// import Tasks from './diakok/marczali-dominik-tasks.js'
+// import Tasks from './diakok/molnar-alex-tasks.js'
+// import Tasks from './diakok/nemeth-miklos-tasks.js'
+// import Tasks from './diakok/varga-adam-tasks.js'
+// import Tasks from './diakok/zugonics-matyi-tasks.js'
+
 
 const tasks = new Tasks()
 
