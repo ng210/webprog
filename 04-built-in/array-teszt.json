@@ -1,0 +1,603 @@
+[
+  {
+    "id": 1,
+    "topic": "Array",
+    "question": "Melyik metódus ellenőrzi, hogy egy adott érték szerepel-e a tömbben?",
+    "options": [
+      "indexOf()",
+      "includes()",
+      "find()",
+      "some()"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 2,
+    "topic": "Array",
+    "question": "Mit ad vissza az indexOf() metódus, ha az érték nem található?",
+    "options": [
+      "null",
+      "-1",
+      "undefined",
+      "false"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 3,
+    "topic": "Array",
+    "question": "Miben különbözik a lastIndexOf() az indexOf() metódustól?",
+    "options": [
+      "Csak stringeken működik",
+      "Az utolsó előfordulást keresi",
+      "Módosítja a tömböt",
+      "Logikai értéket ad vissza"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 4,
+    "topic": "Array",
+    "question": "Melyik metódus adja vissza az első elemet, amely megfelel egy feltételnek?",
+    "options": [
+      "filter()",
+      "find()",
+      "some()",
+      "map()"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 5,
+    "topic": "Array",
+    "question": "Mit ad vissza a findIndex() metódus?",
+    "options": [
+      "Az elem értékét",
+      "Az elem indexét",
+      "Egy logikai értéket",
+      "Egy új tömböt"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 6,
+    "topic": "Array",
+    "question": "Melyik metódus tér vissza true értékkel, ha legalább egy elem megfelel a feltételnek?",
+    "options": [
+      "every()",
+      "some()",
+      "find()",
+      "includes()"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 7,
+    "topic": "Array",
+    "question": "Mikor ad vissza true értéket az every() metódus?",
+    "options": [
+      "Ha legalább egy elem megfelel",
+      "Ha egyik elem sem felel meg",
+      "Ha minden elem megfelel",
+      "Ha a tömb nem üres"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 8,
+    "topic": "Array",
+    "question": "Melyik metódus nem hoz létre új tömböt?",
+    "options": [
+      "map()",
+      "filter()",
+      "forEach()",
+      "slice()"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 9,
+    "topic": "Array",
+    "question": "Mi a map() metódus célja?",
+    "options": [
+      "Elemek törlése",
+      "Elemek átalakítása új tömbbe",
+      "Elemek rendezése",
+      "Elemek kiválasztása index alapján"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 10,
+    "topic": "Array",
+    "question": "Mit ad vissza a filter() metódus?",
+    "options": [
+      "Az első megfelelő elemet",
+      "Egy logikai értéket",
+      "Egy új tömböt",
+      "Egy számot"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 11,
+    "topic": "Array",
+    "question": "Melyik metódus alkalmas egy tömb elemeinek összegzésére?",
+    "options": [
+      "reduce()",
+      "map()",
+      "forEach()",
+      "concat()"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 12,
+    "topic": "Array",
+    "question": "Mi a különbség a reduce() és reduceRight() között?",
+    "options": [
+      "Más adattípust adnak vissza",
+      "Az iteráció iránya",
+      "Csak egyik fogad callbacket",
+      "Csak egyik módosítja a tömböt"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 13,
+    "topic": "Array",
+    "question": "Melyik metódus ad hozzá elemet a tömb végéhez?",
+    "options": [
+      "push()",
+      "pop()",
+      "unshift()",
+      "shift()"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 14,
+    "topic": "Array",
+    "question": "Melyik metódus távolítja el az utolsó elemet?",
+    "options": [
+      "shift()",
+      "splice()",
+      "pop()",
+      "slice()"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 15,
+    "topic": "Array",
+    "question": "Mit csinál az unshift() metódus?",
+    "options": [
+      "Eltávolítja az első elemet",
+      "Hozzáad elemet a tömb elejéhez",
+      "Rendezi a tömböt",
+      "Megfordítja a tömböt"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 16,
+    "topic": "Array",
+    "question": "Melyik metódus képes elemeket törölni és beszúrni is?",
+    "options": [
+      "slice()",
+      "splice()",
+      "filter()",
+      "concat()"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 17,
+    "topic": "Array",
+    "question": "Módosítja-e a sort() metódus az eredeti tömböt?",
+    "options": [
+      "Igen",
+      "Nem",
+      "Csak számok esetén",
+      "Csak stringek esetén"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 18,
+    "topic": "Array",
+    "question": "Mit csinál a reverse() metódus?",
+    "options": [
+      "Új tömböt hoz létre",
+      "Megfordítja az elemek sorrendjét",
+      "Rendezi az elemeket",
+      "Eltávolítja az elemeket"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 19,
+    "topic": "Array",
+    "question": "Mire használható a fill() metódus?",
+    "options": [
+      "Elemek törlésére",
+      "Elemek feltöltésére adott értékkel",
+      "Elemek rendezésére",
+      "Elemek keresésére"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 20,
+    "topic": "Array",
+    "question": "Melyik metódus nem módosítja az eredeti tömböt?",
+    "options": [
+      "splice()",
+      "reverse()",
+      "slice()",
+      "sort()"
+    ],
+    "correct": 2
+  },
+
+  {
+    "id": 21,
+    "topic": "Array",
+    "question": "Mit ad vissza a slice() metódus?",
+    "options": [
+      "Egy elemet",
+      "Egy új tömböt",
+      "Egy indexet",
+      "Egy logikai értéket"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 22,
+    "topic": "Array",
+    "question": "Melyik metódus fűz össze több tömböt?",
+    "options": [
+      "splice()",
+      "push()",
+      "concat()",
+      "flat()"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 23,
+    "topic": "Array",
+    "question": "Mire szolgál a flat() metódus?",
+    "options": [
+      "Tömb rendezésére",
+      "Többszintű tömb lapítására",
+      "Elemek törlésére",
+      "Elemek feltöltésére"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 24,
+    "topic": "Array",
+    "question": "Mit ír ki a kód? const a=[1,2,3]; a.forEach(x=>x*2);",
+    "options": [
+      "[2,4,6]",
+      "[1,2,3]",
+      "undefined",
+      "Hibát dob"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 25,
+    "topic": "Array",
+    "question": "Mi a hiba ebben a kódban? arr.map(x => { x * 2 })",
+    "options": [
+      "Nincs return",
+      "Hibás metódus",
+      "Rosszul van definiálva az arr",
+      "A map nem fogad callbacket"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 26,
+    "topic": "Array",
+    "question": "Melyik metódus tér vissza egyetlen értékkel?",
+    "options": [
+      "map()",
+      "filter()",
+      "reduce()",
+      "concat()"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 27,
+    "topic": "Array",
+    "question": "Melyik metódus törli az első elemet?",
+    "options": [
+      "shift()",
+      "pop()",
+      "splice()",
+      "slice()"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 28,
+    "topic": "Array",
+    "question": "Melyik metódus ad vissza boolean értéket?",
+    "options": [
+      "some()",
+      "map()",
+      "concat()",
+      "slice()"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 29,
+    "topic": "Array",
+    "question": "Mi történik, ha a find() nem talál elemet?",
+    "options": [
+      "null",
+      "false",
+      "undefined",
+      "-1"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 30,
+    "topic": "Array",
+    "question": "Melyik metódus módosítja a tömb hosszát?",
+    "options": [
+      "push()",
+      "slice()",
+      "map()",
+      "filter()"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 31,
+    "topic": "Array",
+    "question": "Melyik metódus használható mellékhatások kezelésére?",
+    "options": [
+      "forEach()",
+      "map()",
+      "filter()",
+      "reduce()"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 32,
+    "topic": "Array",
+    "question": "Melyik metódus nem létezik az Array-ben?",
+    "options": [
+      "contains()",
+      "includes()",
+      "find()",
+      "map()"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 33,
+    "topic": "Array",
+    "question": "Mit csinál a sort() alapértelmezetten?",
+    "options": [
+      "Szám szerint rendez",
+      "Stringként rendez",
+      "Nem rendez",
+      "Csökkenő sorrendbe rendez"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 34,
+    "topic": "Array",
+    "question": "Melyik metódus kombinálható láncolva?",
+    "options": [
+      "map().filter()",
+      "forEach().map()",
+      "push().filter()",
+      "pop().map()"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 35,
+    "topic": "Array",
+    "question": "Mi a célja a reduce() kezdeti értékének?",
+    "options": [
+      "Index beállítása",
+      "Akkumulátor kezdőértéke",
+      "Tömb hossza",
+      "Callback hívások száma"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 36,
+    "topic": "Array",
+    "question": "Melyik metódus alkalmas másolás készítésére?",
+    "options": [
+      "slice()",
+      "splice()",
+      "fill()",
+      "sort()"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 37,
+    "topic": "Array",
+    "question": "Melyik metódus lapít többszintű tömböt?",
+    "options": [
+      "concat()",
+      "flat()",
+      "reduce()",
+      "map()"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 38,
+    "topic": "Array",
+    "question": "Melyik metódus ad vissza indexet feltétel alapján?",
+    "options": [
+      "find()",
+      "findIndex()",
+      "indexOf()",
+      "includes()"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 39,
+    "topic": "Array",
+    "question": "Melyik metódus töröl elemeket index alapján?",
+    "options": [
+      "slice()",
+      "splice()",
+      "filter()",
+      "pop()"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 40,
+    "topic": "Array",
+    "question": "Mit ad vissza a pop() metódus?",
+    "options": [
+      "Az új tömböt",
+      "A törölt elemet",
+      "A tömb hosszát",
+      "true/false"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 41,
+    "topic": "Array",
+    "question": "Melyik metódus nem fogad callback függvényt?",
+    "options": [
+      "map()",
+      "filter()",
+      "reduce()",
+      "concat()"
+    ],
+    "correct": 3
+  },
+  {
+    "id": 42,
+    "topic": "Array",
+    "question": "Melyik metódus ellenőrzi minden elemre a feltételt?",
+    "options": [
+      "some()",
+      "every()",
+      "find()",
+      "includes()"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 43,
+    "topic": "Array",
+    "question": "Melyik metódus ad vissza új tömböt, de nem módosítja az eredetit?",
+    "options": [
+      "reverse()",
+      "splice()",
+      "map()",
+      "sort()"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 44,
+    "topic": "Array",
+    "question": "Mi történik, ha a reduce() callback nem tér vissza értékkel?",
+    "options": [
+      "undefined lesz az akkumulátor",
+      "Hibát dob",
+      "0 lesz az érték",
+      "Nem történik semmi"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 45,
+    "topic": "Array",
+    "question": "Melyik metódus alkalmas elem beszúrására adott indexnél?",
+    "options": [
+      "slice()",
+      "splice()",
+      "concat()",
+      "map()"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 46,
+    "topic": "Array",
+    "question": "Melyik metódus tér vissza a tömb hosszával?",
+    "options": [
+      "size()",
+      "count()",
+      "length",
+      "getLength()"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 47,
+    "topic": "Array",
+    "question": "Melyik metódus nem létezik?",
+    "options": [
+      "flat()",
+      "reduceRight()",
+      "select()",
+      "findIndex()"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 48,
+    "topic": "Array",
+    "question": "Melyik metódus használható adattranszformációra?",
+    "options": [
+      "map()",
+      "pop()",
+      "shift()",
+      "reverse()"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 49,
+    "topic": "Array",
+    "question": "Mit csinál a concat() az eredeti tömbbel?",
+    "options": [
+      "Módosítja",
+      "Törli",
+      "Nem módosítja",
+      "Rendezi"
+    ],
+    "correct": 2
+  },
+  {
+    "id": 50,
+    "topic": "Array",
+    "question": "Melyik metódus használható feltételes keresésre?",
+    "options": [
+      "find()",
+      "includes()",
+      "indexOf()",
+      "concat()"
+    ],
+    "correct": 0
+  }
+]

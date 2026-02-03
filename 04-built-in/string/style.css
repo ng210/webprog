@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #246;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0em;
+    background: radial-gradient(#264, 40%, #021);
+    overflow: hidden;
+    color: #fff4;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 8px 6px 4px #0008;
+    background-color: #8842;
+    padding: 0.5em;
+    margin: 0;
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="hu">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>JavaScript kvíz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="quiz.js" type="module" defer></script>
+</head>
+
+<body>
+    <div class="card" role="main" aria-labelledby="title">
+        <header>
+            <div>
+                <h1 id="title">JavaScript Kvíz</h1>
+                <span id="topic">Téma</span>
+            </div>
+            <div class="progress" id="progress">1 / 100</div>
+        </header>
+
+        <div id="question-area">
+            <div class="question" id="question">Betöltés...</div>
+            <div id="code-block"></div>
+            <div class="options" id="options"></div>
+        </div>
+
+        <div class="controls">
+            <!-- <button id="showBtn" class="secondary">Megmutat</button> -->
+            <button id="nextBtn">Megmutat</button>
+            <div style="flex:1"></div>
+            <div id="scoreSummary" class="result"></div>
+        </div>
+
+    </div>
+</body>
+
+</html>
