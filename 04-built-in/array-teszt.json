@@ -4,12 +4,12 @@
     "topic": "Array",
     "question": "Melyik metódus ellenőrzi, hogy egy adott érték szerepel-e a tömbben?",
     "options": [
-      "indexOf()",
       "includes()",
+      "indexOf()",
       "find()",
       "some()"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 2,
@@ -29,11 +29,11 @@
     "question": "Miben különbözik a lastIndexOf() az indexOf() metódustól?",
     "options": [
       "Csak stringeken működik",
-      "Az utolsó előfordulást keresi",
       "Módosítja a tömböt",
+      "Az utolsó előfordulást keresi",
       "Logikai értéket ad vissza"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 4,
@@ -41,11 +41,11 @@
     "question": "Melyik metódus adja vissza az első elemet, amely megfelel egy feltételnek?",
     "options": [
       "filter()",
-      "find()",
       "some()",
+      "find()",
       "map()"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 5,
@@ -53,11 +53,11 @@
     "question": "Mit ad vissza a findIndex() metódus?",
     "options": [
       "Az elem értékét",
-      "Az elem indexét",
       "Egy logikai értéket",
-      "Egy új tömböt"
+      "Egy új tömböt",
+      "Az elem indexét"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 6,
@@ -100,12 +100,12 @@
     "topic": "Array",
     "question": "Mi a map() metódus célja?",
     "options": [
-      "Elemek törlése",
       "Elemek átalakítása új tömbbe",
+      "Elemek törlése",
       "Elemek rendezése",
       "Elemek kiválasztása index alapján"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 10,
@@ -184,12 +184,12 @@
     "topic": "Array",
     "question": "Melyik metódus képes elemeket törölni és beszúrni is?",
     "options": [
-      "slice()",
       "splice()",
+      "slice()",
       "filter()",
       "concat()"
     ],
-    "correct": 1
+    "correct": 0
   },
   {
     "id": 17,
@@ -209,11 +209,11 @@
     "question": "Mit csinál a reverse() metódus?",
     "options": [
       "Új tömböt hoz létre",
-      "Megfordítja az elemek sorrendjét",
       "Rendezi az elemeket",
+      "Megfordítja az elemek sorrendjét",
       "Eltávolítja az elemeket"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 19,
@@ -279,14 +279,14 @@
   {
     "id": 24,
     "topic": "Array",
-    "question": "Mit ír ki a kód? const a=[1,2,3]; a.forEach(x=>x*2);",
+    "question": "Mit ír ki a kód? const a=[1,2,3]; console.log(a.forEach(x=>x*2));",
     "options": [
       "[2,4,6]",
       "[1,2,3]",
       "undefined",
       "Hibát dob"
     ],
-    "correct": 1
+    "correct": 2
   },
   {
     "id": 25,
@@ -329,17 +329,17 @@
     "topic": "Array",
     "question": "Melyik metódus ad vissza boolean értéket?",
     "options": [
-      "some()",
       "map()",
       "concat()",
+      "some()",
       "slice()"
     ],
-    "correct": 0
+    "correct": 2
   },
   {
     "id": 29,
     "topic": "Array",
-    "question": "Mi történik, ha a find() nem talál elemet?",
+    "question": "Mi ad vissza a find(), ha nem talál elemet?",
     "options": [
       "null",
       "false",
@@ -363,7 +363,7 @@
   {
     "id": 31,
     "topic": "Array",
-    "question": "Melyik metódus használható mellékhatások kezelésére?",
+    "question": "Melyik metódus futtat egy eljárást (akciót) minden egyes elemre?",
     "options": [
       "forEach()",
       "map()",
@@ -387,7 +387,7 @@
   {
     "id": 33,
     "topic": "Array",
-    "question": "Mit csinál a sort() alapértelmezetten?",
+    "question": "Mit csinál a sort() alapértelmezett (nincsen paraméter) esetben?",
     "options": [
       "Szám szerint rendez",
       "Stringként rendez",
@@ -399,7 +399,7 @@
   {
     "id": 34,
     "topic": "Array",
-    "question": "Melyik metódus kombinálható láncolva?",
+    "question": "Melyik metódus láncolás érvényes?",
     "options": [
       "map().filter()",
       "forEach().map()",
@@ -423,7 +423,7 @@
   {
     "id": 36,
     "topic": "Array",
-    "question": "Melyik metódus alkalmas másolás készítésére?",
+    "question": "Melyik metódus alkalmas másolat készítésére?",
     "options": [
       "slice()",
       "splice()",
@@ -435,10 +435,10 @@
   {
     "id": 37,
     "topic": "Array",
-    "question": "Melyik metódus lapít többszintű tömböt?",
+    "question": "Melyik metódus felel meg a C# LINQ Select metódusnak?",
     "options": [
       "concat()",
-      "flat()",
+      "map()",
       "reduce()",
       "map()"
     ],
@@ -474,16 +474,16 @@
     "question": "Mit ad vissza a pop() metódus?",
     "options": [
       "Az új tömböt",
-      "A törölt elemet",
       "A tömb hosszát",
-      "true/false"
+      "true/false",
+      "A törölt elemet"
     ],
-    "correct": 1
+    "correct": 3
   },
   {
     "id": 41,
     "topic": "Array",
-    "question": "Melyik metódus nem fogad callback függvényt?",
+    "question": "Melyik metódus nem fogad el callback függvényt paraméterként?",
     "options": [
       "map()",
       "filter()",
@@ -507,19 +507,19 @@
   {
     "id": 43,
     "topic": "Array",
-    "question": "Melyik metódus ad vissza új tömböt, de nem módosítja az eredetit?",
+    "question": "Melyik metódus ad vissza új tömböt, és nem módosítja az eredetit?",
     "options": [
       "reverse()",
       "splice()",
       "map()",
-      "sort()"
+      "slice()"
     ],
     "correct": 2
   },
   {
     "id": 44,
     "topic": "Array",
-    "question": "Mi történik, ha a reduce() callback nem tér vissza értékkel?",
+    "question": "Mi történik, ha a reduce() callback függvénye nem ad vissza értéket?",
     "options": [
       "undefined lesz az akkumulátor",
       "Hibát dob",
@@ -543,7 +543,7 @@
   {
     "id": 46,
     "topic": "Array",
-    "question": "Melyik metódus tér vissza a tömb hosszával?",
+    "question": "Melyik az alábbiak közül adja vissza a tömb hosszát?",
     "options": [
       "size()",
       "count()",
@@ -567,7 +567,7 @@
   {
     "id": 48,
     "topic": "Array",
-    "question": "Melyik metódus használható adattranszformációra?",
+    "question": "Melyik metódus használható adat átalakításra?",
     "options": [
       "map()",
       "pop()",
