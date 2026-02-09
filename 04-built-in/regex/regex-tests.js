@@ -30,7 +30,7 @@ export default class RegexTests extends Test {
         this.isTrue('isNumber(\'.1\')', this.tasks.isNumber('.1'))
     }
     test_IsNumber7() {
-        this.isTrue('isNumber(\'1A\')', this.tasks.isNumber('1A'))
+        this.isFalse('isNumber(\'1A\')', this.tasks.isNumber('1A'))
     }
     test_IsNumber8() {
         this.isTrue('isNumber(\'1.001e+5\')', this.tasks.isNumber('1.001e+5'))
@@ -64,5 +64,15 @@ export default class RegexTests extends Test {
     }
     //#endregion
 
+    //#region findTests
+    test_findTests1() {
+        this.isEqual('findTests(\'\')', this.tasks.findTests(''), [])
+    }
+    async test_findTests2() {
+        const src = await this.loadSource('./regex-tests.js')
+        const tests = this.tasks.findTests(src)
+        this.isEqual('findTests(src)', tests.length, 18)
+    }
+    //#endregion
 
 }

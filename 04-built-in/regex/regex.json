@@ -1,0 +1,45 @@
+{
+	"flags": {
+		"description": "a minta keresést módosító jelzők",
+		"types": {
+			"g": "Global search - az összes előfordulást keresi, nem csupán az elsőt",
+			"i": "Case-insensitive - nincsen kis- és nagybetű megkülönböztetés",
+			"s": "A . (pont) az újsor karakterre (\n) is illeszkedik",
+			"u": "Unicode - a keresett minta unicode kódokat tartalmaz",
+			"y": "stickY - a keresés az aktuális pozíciótól indul"
+		}
+	},
+	"quantifiers": {
+		"description": "A megelőző kifejezés vagy minta számosságát adják meg, tehát azt módosítják, hogy az adott kifejezés hányszor szerepeljen.",
+		"types": {
+			"*": "tetszőleges számban - \\d*: 0 vagy bármennyi számjegy",
+			"+": "legalább egyszer - \\d+: 1 vagy bármennyi számjegy",
+			"?": "egyszer vagy egyszer sem - \\d?: 0 vagy 1 számjegy",
+			"{n}": "pontosan n-szer - \\d{7}: hétjegyű számok",
+			"{n,m}": "legalább n-szer, de legfeljebb m-szer - \\d{5,7}: öt-, hat- és hétjegyű számok"
+		}
+	},
+	"character-classes": {
+		"description": "Karakterek adott részhalmazát választják ki",
+		"types": {
+			"\\s": "whitespace (nem látható helyköz), általában a tab, szóköz, újsor karakterek",
+			"\\S": "a \\s komplementere, azaz minden karakter ami nem whitespace0",
+			"\\w": "betűk és számjegyek (alfanumerikus) és az _ (underscore), speciális ékezetes betűket nem tartalmazza",
+			"\\W": "a \\w komplementere, azaz minden karakter, ami nem betű, számjegy vagy _",
+			"\\d": "számjegy",
+			"\\D": "a \\d komplementere, azaz minden ami nem számjegy",
+			"\\p": "Unicode karakter osztályok, pl. \\p{L}: Unicode betűk (ékezetesekkel együtt)"
+		}
+	},
+	"misc": {
+		"description": "Egyéb, a keresést módosító vezérlő karakterek",
+		"types": {
+			"^": "a minta illesztése a bemenet elejétől kezdődik",
+			"$": "a minta illesztése a bemenet végéig tart",
+			"[...]": "keresett karakterek és kifejezések felsorolása, \\d = [0123456789] = [0-9]",
+			"[^...]": "a [] ellentéte, minden karakterek kivéve az itt felsoroltakat, \\d = [0-9] => \\D = [^0-9]",
+			"(...)": "egy részminta megjegyeztetése, később hivatkozni lehet rá",
+			".":"wildcard - bármilyen karaktert helyettesíthet, kivéve az újsort, ha a reguláris kifejezést az s flag nélkül hoztuk létre"
+		}
+	}
+}

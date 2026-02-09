@@ -1,7 +1,7 @@
 import RegexTests from './regex-tests.js'
 
 async function main() {
-	new ArrayTests().runAll()
+	new RegexTests().runAll()
 }
 
 main();
