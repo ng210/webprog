@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0em;
+    background: radial-gradient(#012, 40%, #000);
+    overflow: hidden;
+    color: #fff4;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 0px 0px 12px #fffa;
+    border-radius: 1em;
+}
+
+#pixels {
+    background-color: #fff2;
+    border: solid 2px #a4f8;
+}
+
+.pixel {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 1px;
+    margin: 1px;
+}
