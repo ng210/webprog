@@ -5,18 +5,31 @@ export default class RegexTasks {
     // Bemenet: string | null
     // Kimenet: bool
     isInt(text) {
+        const re = /^[+-]?\d+$/
+        return re.test(text)
     }
 
     // Leírás: megvizsgálja, hogy az átadott szöveg decimális valós számot tartalmaz-e
     // Bemenet: string | null
     // Kimenet: bool
     isFloat(text) {
+        // 10.
+        const re1 = /^[+-]?\d+\.$/
+        // .10
+        const re2 = /^[+-]?\.\d+$/
+        // 10.10
+        const re3 = /^[+-]?\d+\.\d+$/
+        const re = new RegExp(`${re1.source}|${re2.source}|${re3.source}`)
+        return re.test(text)
     }
     
     // Leírás: megvizsgálja, hogy az átadott szöveg tudományos formátumú számot tartalmaz-e
     // Bemenet: string | null
     // Kimenet: bool
+    // 1.001e+5
     isScientific(text) {
+        const re = /^[+-]?\d\.\d+e[+-]\d+$/
+        return re.test(text)
     }
 
     // Leírás: megvizsgálja, hogy az átadott szöveg fix formátumú dátumot tartalmaz-e
@@ -24,6 +37,9 @@ export default class RegexTasks {
     // Bemenet: string | null
     // Kimenet: bool
     isDate(text) {
+        //const re = /\d\d\d\d\-\d\d\-\d\d/
+        const re = /\d{4}\-\d{2}\-\d\d/
+        return re.test(text)
     }
     //#endregion
 
