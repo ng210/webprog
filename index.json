@@ -2,8 +2,8 @@
     { "name":"Konzol", "url":"./01-konzol/index.html" },
     { "name":"Sakktábla", "url":"./02-boards/sakk/index.html" },
     { "name":"Alapok #1", "url":"./03-alapok/index.html" },
-    { "name":"Teszt-1", "url":"./04-teszt-1/index.html" },
-    { "name":"String feladatok", "url":"./06-built-in/string/index.html" },
-    { "name":"Array feladatok", "url":"./06-built-in/array/index.html" },
-    { "name":"Array tesztek", "url":"./Gyakorlás/array/index.html" }
+    { "name":"Teszt-1", "url":"./teszt/index.html" },
+    { "name":"String feladatok", "url":"./04-built-in/string/index.html" },
+    { "name":"Array feladatok", "url":"./04-built-in/array/index.html" },
+    { "name":"Regex feladatok", "url":"./04-built-in/regex/index.html" }
 ]

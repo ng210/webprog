@@ -34,7 +34,7 @@ export default class RegexTasks {
     // - a név után zárójelben a paraméterlista található
     // Bemenet: string | null
     // Kimenet: string[]
-    findTests(text) {
+    findTestsExec(text) {
     }
     //#endregion
 
