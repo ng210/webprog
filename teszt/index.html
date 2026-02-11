@@ -4,35 +4,37 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>JavaScript kvíz</title>
+    <title>Kvíz</title>
     <link rel="stylesheet" href="style.css">
     <script src="quiz.js" type="module" defer></script>
 </head>
 
 <body>
-    <div class="card" role="main" aria-labelledby="title">
-        <header>
-            <div>
-                <h1 id="title">JavaScript Kvíz</h1>
-                <span id="topic">Téma</span>
+    <header>
+        <h1 id="title">Kvíz</h1>
+    </header>
+    <main>
+        <div class="card">
+            <h2 class="topic">Topic</h2>
+            <div class="progress" id="progress">2/50</div>
+
+            <div id="loading" class="content">Betöltés...</div>
+            <div id="question-area" class="content">
+                <div class="question" id="question">Kérdés</div>
+                <div id="code-block">code code code</div>
+                <div class="options" id="options">
+                    <div><div id="result-a" class="result">+</div><input name="option" type="radio" id="answer-a" value="a"/><span class="option">a</span></div>
+                    <div><div id="result-b" class="result"></div><input name="option" type="radio" id="answer-b" value="b"/><span class="option">b</span></div>
+                    <div><div id="result-c" class="result">-</div><input name="option" type="radio" id="answer-c" value="c"/><span class="option">c</span></div>
+                    <div><div id="result-d" class="result"></div><input name="option" type="radio" id="answer-d" value="d"/><span class="option">d</span></div>
+                </div>
             </div>
-            <div class="progress" id="progress">1 / 100</div>
-        </header>
 
-        <div id="question-area">
-            <div class="question" id="question">Betöltés...</div>
-            <div id="code-block"></div>
-            <div class="options" id="options"></div>
+            <div class="controls">
+                <button id="nextBtn">Megmutat</button>
+            </div>
         </div>
-
-        <div class="controls">
-            <!-- <button id="showBtn" class="secondary">Megmutat</button> -->
-            <button id="nextBtn">Megmutat</button>
-            <div style="flex:1"></div>
-            <div id="scoreSummary" class="result"></div>
-        </div>
-
-    </div>
+    </main>
 </body>
 
 </html>
