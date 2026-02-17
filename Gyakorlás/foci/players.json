@@ -1,0 +1,12 @@
+[
+    { "kep": "img/messi.jpg", "nev": "Lionel Messi", "nemzetiseg": "Argentin", "kor": 36, "golok": 820 },
+    { "kep": "img/cr7.jpg", "nev": "Cristiano Ronaldo", "nemzetiseg": "Portugál", "kor": 39, "golok": 880 },
+    { "kep": "img/neymar-jr.jpg", "nev": "Neymar Jr.", "nemzetiseg": "Brazil", "kor": 32, "golok": 450 },
+    { "kep": "img/mbappé.jpg", "nev": "Kylian Mbappé", "nemzetiseg": "Francia", "kor": 25, "golok": 320 },
+    { "kep": "img/haaland.jpg", "nev": "Erling Haaland", "nemzetiseg": "Norvég", "kor": 24, "golok": 250 },
+    { "kep": "img/de-bruyne.jpg", "nev": "Kevin De Bruyne", "nemzetiseg": "Belga", "kor": 33, "golok": 160 },
+    { "kep": "img/salah.jpg", "nev": "Mohamed Salah", "nemzetiseg": "Egyiptomi", "kor": 32, "golok": 300 },
+    { "kep": "img/modric.jpg", "nev": "Luka Modrić", "nemzetiseg": "Horvát", "kor": 39, "golok": 120 },
+    { "kep": "img/lewandowski.jpg", "nev": "Robert Lewandowski", "nemzetiseg": "Lengyel", "kor": 36, "golok": 580 },
+    { "kep": "img/vinicius-jr.jpg", "nev": "Vinícius Júnior", "nemzetiseg": "Brazil", "kor": 24, "golok": 150 }
+]

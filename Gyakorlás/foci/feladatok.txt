@@ -1,0 +1,7 @@
+Focista honlap
+
+1. Add az oldalhoz a players.js szkriptet, ami az adatokat tárolja!
+2. Add az oldalhoz a main.js szkriptet!
+3. Állítsd be a main.js szkriptben, hogy az onLoad függvény az oldal betöltésekor fusson le!
+4. Készítsd el a createCard  függvényt, az ott leírtak szerint!
+5. Készítsd el a findByName függvényt! A keresés dobozban megadott nevet keresse meg a kártyák között és a megtalált kártya CSS osztályaihoz adja hozzá a 'selected' jelölőt!
