@@ -28,7 +28,7 @@ export default class RegexTasks {
     // Kimenet: bool
     // 1.001e+5
     isScientific(text) {
-        const re = /^[+-]?\d\.\d+e[+-]\d+$/
+        const re = /^[+-]?\d\.\d+e([+-]\d+)$/
         return re.test(text)
     }
 
@@ -72,6 +72,7 @@ export default class RegexTasks {
     // Kimenet: string[]
     findTestsMatch(text) {
         if (text == null) return null
+        if (text == '') return []
         const re = /test_\w+\(/ig
         let m = text.match(re)
         return m?.map(m => m.slice(0, -1))
@@ -87,7 +88,12 @@ export default class RegexTasks {
     // Bemenet: string | null, object | null
     // Kimenet: string
     applyTemplate(template, obj) {
-
+        if (!template || !obj) return template
+        const txt = template.replace(
+            /\{(\w+)\}/ig,
+            (m, p1) => obj[p1]
+        )
+        return txt
     }
 
     //#endregion

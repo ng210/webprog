@@ -120,10 +120,10 @@ export default class RegexTests extends Test {
         const template = await this.loadResource('./zelda.tmpl')
         this.isEqual('applyTemplate(template, null)', this.tasks.applyTemplate(template, null), template)
     }
-    async test_applyTemplate3() {
+    async test_applyTemplate4() {
         const template = await this.loadResource('./zelda.tmpl')
         const replaced = await this.loadResource('./zelda.html')
-        const link = await this.loadResource('./link.json')
+        const link = JSON.parse(await this.loadResource('./link.json'))
         this.isEqual('applyTemplate(template, link)', this.tasks.applyTemplate(template, link), replaced)
     }
     //#endregion
