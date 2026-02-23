@@ -4,7 +4,8 @@ class ArrayTasks {
     // Bemenet: number[] | null
     // Kimenet: number[]
     doublePositiveNumbers(arr) {
-        
+        if (!arr) return []
+        return arr.filter(n => n > 0).map(n => 2*n)
     }
 
     // 2. getSortedUniqueValues
@@ -12,7 +13,27 @@ class ArrayTasks {
     // Bemenet: number[] | null
     // Kimenet: number[]
     getSortedUniqueValues(arr) {
-        
+        if (!arr) return []
+        // let uniques = []
+        // for (let item of arr) {
+        //     if (!uniques.includes(item)) {
+        //         uniques.push(item)
+        //     }
+        // }
+        // return uniques
+        return arr.reduce(
+            (uniques, item) => {
+                if (!uniques.includes(item)) {
+                    uniques.push(item)
+                }
+                return uniques
+            }, []).sort(/* (a,b) => a - b*/)
+
+        // sum függvény a reduce segítségével
+        // arr.reduce(
+        //     (szumma, item) => {
+        //         return szumma + item
+        //     }, 0)
     }
 
     // 3. hasShortWord
@@ -20,16 +41,24 @@ class ArrayTasks {
     // Bemenet: string[] | null, number | null
     // Kimenet: boolean
     hasShortWord(arr, length = 3) {
-        
+        if (!arr || !length) return false
+        return arr.some(
+            item => item?.length < length
+        )
     }
 
     // 4. sumNumbersInMatrix
     // Leírás: Egy mátrixot (két dimenziós tömbböt) egy dimenzióssá alakít úgy,
     // hogy a mátrix minden sorában összegzi a számokat, a nem számokat ignorálja.
     // Bemenet: number[][] | null
-    // Kimenet: number
+    // Kimenet: number[]
     sumNumbersInMatrix(arr) {
-        
+        if (!arr) return []
+        return arr.map(
+            row => row
+            .filter(n => typeof n === 'number')
+            .reduce((szumma, item) => szumma + item, 0)
+        )
     }
 
 
