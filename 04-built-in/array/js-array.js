@@ -5,7 +5,9 @@ export default class ArrayTasks {
     // Kimenet: number[]
     doublePositiveNumbers(arr) {
         if (!arr) return []
-        return arr.filter(n => n > 0).map(n => 2*n)
+        return arr
+                .filter(n => n > 0)
+                .map(n => 2*n)
     }
 
     // 2. getSortedUniqueValues
@@ -68,6 +70,9 @@ export default class ArrayTasks {
     // Leírás: Ellenőrzi, hogy minden szám pozitív-e.
     // Bemenet: number[] | null
     // Kimenet: boolean
+    fn = function(n) {
+        return n > 0
+    } 
     allNumbersPositive(arr) {
         if (!arr) return false
         return arr.every(n => n > 0)
