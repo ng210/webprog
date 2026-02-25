@@ -1,4 +1,4 @@
-class ArrayTasks {
+export default class ArrayTasks {
     // 1. doublePositiveNumbers
     // Leírás: A pozitív számokat megduplázza, a többieket eldobja.
     // Bemenet: number[] | null
@@ -21,13 +21,14 @@ class ArrayTasks {
         //     }
         // }
         // return uniques
+
         return arr.reduce(
             (uniques, item) => {
-                if (!uniques.includes(item)) {
+                if (!uniques.includes(item) && typeof(item) === 'number' && !isNaN(item)) {
                     uniques.push(item)
                 }
                 return uniques
-            }, []).sort(/* (a,b) => a - b*/)
+            }, []).sort((a,b) => a - b)
 
         // sum függvény a reduce segítségével
         // arr.reduce(
@@ -55,9 +56,9 @@ class ArrayTasks {
     sumNumbersInMatrix(arr) {
         if (!arr) return []
         return arr.map(
-            row => row
-            .filter(n => typeof n === 'number')
-            .reduce((szumma, item) => szumma + item, 0)
+            row => row ? row
+            .reduce((szumma, item) => !isNaN(item) ? szumma + item : NaN, 0)
+            : NaN
         )
     }
 
@@ -68,7 +69,8 @@ class ArrayTasks {
     // Bemenet: number[] | null
     // Kimenet: boolean
     allNumbersPositive(arr) {
-        
+        if (!arr) return false
+        return arr.every(n => n > 0)
     }
 
     // 2. removeFirstAndLast
@@ -76,15 +78,22 @@ class ArrayTasks {
     // Bemenet: any[] | null
     // Kimenet: any[]
     removeFirstAndLast(arr) {
-        
+        if (!arr) return null
+        return arr.slice(1, -1)
     }
 
     // 3. addHeaderAndFooter
     // Leírás: Beszúr egy elemet az elejére és a végére.
     // Bemenet: string[] | null, string, string
     // Kimenet: string[]
-    addHeaderAndFooter(arr) {
-        
+    addHeaderAndFooter(arr, header, footer) {
+        if (!arr) return null
+        if (header != null)
+            arr.unshift(header)
+        if (footer != null)
+            arr.push(footer)
+        return arr
+        //return [header, ...arr, footer]
     }
 
     // 4. getLongestWords
@@ -93,7 +102,14 @@ class ArrayTasks {
     // Bemenet: string[][] | null
     // Kimenet: string[] | null
     getAllLongWords(arr) {
-        
+        if (!arr) return null
+        return arr.map(
+            row => row != null ?
+                    row.reduce(
+                        (leghosszabb, item) => item.length > leghosszabb.length ? item : leghosszabb,
+                        '')
+                    : null
+        )
     }
 
 
@@ -110,7 +126,7 @@ class ArrayTasks {
     // Leírás: Egy adott indexen lecserél egy elemet.
     // Bemenet: any[] | null, any, any
     // Kimenet: any[]
-    replaceAtIndex(arr) {
+    replaceAtIndex(arr, index, newValue) {
         
     }
 
@@ -131,11 +147,11 @@ class ArrayTasks {
     }
 
 
-    // 1. containsAndSort
-    // Leírás: Ellenőrzi egy elem meglétét, majd rendez.
+    // 1. removeAndSort
+    // Leírás: Töröl egy elemet, majd rendez.
     // Bemenet: string[] | null, string
     // Kimenet: string[]
-    containsAndSort(arr) {
+    removeAndSort(arr, element) {
         
     }
 
@@ -163,155 +179,3 @@ class ArrayTasks {
         
     }
 }
-
-const tasks = new ArrayTasks()
-
-class ArrayTests extends Test {
-
-    test_doublePositiveNumbers1() {
-        this.isEqual('doublePositiveNumbers(null)', tasks.doublePositiveNumbers(null), null)
-    }
-
-    test_doublePositiveNumbers2() {
-        const arr = [1, -2, 3, -5, 0, 7]
-        this.isEqual(`doublePositiveNumbers(${JSON.stringify(arr)})`, tasks.doublePositiveNumbers(arr), [2, 6, 14])
-    }
-
-    test_doublePositiveNumbers3() {
-        const arr = [1, -2, 'A', 3, -5, 0, NaN, 7]
-        this.isEqual(`doublePositiveNumbers(${JSON.stringify(arr)})`, tasks.doublePositiveNumbers(arr), [2, 6, 14])
-    }
-
-
-
-    test_getSortedUniqueValues1() {
-        this.isEqual('getSortedUniqueValues(null)', tasks.getSortedUniqueValues(null), null)
-    }
-
-    test_getSortedUniqueValues2() {
-        const arr = [4, 8, 12, 6, 8, 12]
-        this.isEqual(`getSortedUniqueValues(${JSON.stringify(arr)})`, tasks.getSortedUniqueValues(arr), [4, 6, 8, 12])
-    }
-
-    test_getSortedUniqueValues3() {
-        const arr = [4, 'A', 8, 12, 6, true, 8, 12, NaN]
-        this.isEqual(`getSortedUniqueValues(${JSON.stringify(arr)})`, tasks.getSortedUniqueValues(arr), [4, 6, 8, 12])
-    }
-
-
-
-    test_hasShortWord1() {
-        this.isFalse(`hasShortWord(null)`, tasks.hasShortWord(null))
-    }
-    
-    test_hasShortWord2() {
-        const arr = ['white', 'black', 'blue', 'green', 'pink', 'red', 'gray']
-        this.isFalse(`hasShortWord(${JSON.stringify(arr)})`, tasks.hasShortWord(arr))
-    }
-
-    test_hasShortWord3() {
-        const arr = ['white', 'black', 'blue', 'green', 'pink', 'red', 'gray']
-        this.isTrue(`hasShortWord(${JSON.stringify(arr)}, 5)`, tasks.hasShortWord(arr, 4))    // red, blue, pink, gray
-    }
-
-    test_hasShortWord4() {
-        const arr = [1, 2, 3, 4]
-        this.isFalse(`hasShortWord(${JSON.stringify(arr)})`, tasks.hasShortWord(arr))
-    }
-
-
-
-    test_sumNumbersInMatrix1() {
-        this.isEqual('sumNumbersInMatrix(null)', tasks.sumNumbersInMatrix(null), null)
-    }
-
-    test_sumNumbersInMatrix2() {
-        const mat = [[1,2,3],null,[7,8]]
-        this.isEqual(`sumNumbersInMatrix(${JSON.stringify(mat)})`, tasks.sumNumbersInMatrix(mat), [6, NaN, 15])
-    }
-
-    test_sumNumbersInMatrix3() {
-        const mat = [[1,2,3],[4,'A',6],[7,8]]
-        this.isEqual(`sumNumbersInMatrix(${JSON.stringify(mat)})`, tasks.sumNumbersInMatrix(mat), [6, NaN, 15])
-    }
-
-    test_sumNumbersInMatrix4() {
-        const mat = [[1,2,3],[4,5,6],[7,8]]
-        this.isEqual(`sumNumbersInMatrix(${JSON.stringify(mat)})`, tasks.sumNumbersInMatrix(mat), [6, 15, 15])
-    }
-
-
-
-    test_allNumbersPositive1() {
-        this.isFalse('allNumbersPositive(null)', tasks.allNumbersPositive(null))
-    }
-
-    test_allNumbersPositive2() {
-        const arr = [-1, 0, 2, 3]
-        this.isFalse(`allNumbersPositive(${JSON.stringify(arr)})`, tasks.allNumbersPositive(arr))
-    }
-
-    test_allNumbersPositive3() {
-        const arr = [1, 2, 3]
-        this.isTrue(`allNumbersPositive(${JSON.stringify(arr)})`, tasks.allNumbersPositive(arr))
-    }
-
-
-
-    test_removeFirstAndLast1() {
-        this.isEqual('removeFirstAndLast(null)', tasks.removeFirstAndLast(null), null)
-    }
-
-    test_removeFirstAndLast2() {
-        const arr = ['white', 1]
-        this.isEqual(`removeFirstAndLast(${JSON.stringify(arr)})`, tasks.removeFirstAndLast(arr), [])
-    }
-
-    test_removeFirstAndLast3() {
-        const arr = ['white', 1, true, 'red', NaN, {}]
-        this.isEqual(`removeFirstAndLast(${JSON.stringify(arr)})`, tasks.removeFirstAndLast(arr), [1, true, 'red', NaN])
-    }
-
-
-    test_addHeaderAndFooter1() {
-        this.isEqual('addHeaderAndFooter(null)', tasks.addHeaderAndFooter(null), null)
-    }
-
-    test_addHeaderAndFooter2() {
-        this.isEqual('addHeaderAndFooter([])', tasks.addHeaderAndFooter([]), [])
-    }
-
-    test_addHeaderAndFooter3() {
-        this.isEqual('addHeaderAndFooter([], \'head\', \'foot\')', tasks.addHeaderAndFooter([], 'head', 'foot'), ['head', 'foot'])
-    }
-
-    test_addHeaderAndFooter4() {
-        const arr = ['1st', '2nd']
-        this.isEqual(
-            `addHeaderAndFooter(${JSON.stringify(arr)}, \'head\', \'foot\')`,
-            tasks.addHeaderAndFooter(arr, 'head', 'foot'),
-            ['head', '1st', '2nd', 'foot'])
-    }
-
-
-    test_getAllLongWords1() {
-        this.isEqual('getAllLongWords(null)', tasks.getAllLongWords(null), null)
-    }
-
-    test_getAllLongWords2() {
-        const arr = [['white', 'magenta'], ['blue', 'pink'], ['green', 'red', 'yellow']]
-        this.isEqual(`getAllLongWords(${JSON.stringify(arr)})`, tasks.getAllLongWords(arr), ['magenta', 'blue', 'yellow'])
-    }
-
-    test_getAllLongWords3() {
-        const arr = [['white', 'magenta'], null, ['green', 'red', 'yellow']]
-        this.isEqual(`getAllLongWords(${JSON.stringify(arr)})`, tasks.getAllLongWords(arr), ['magenta', null, 'yellow'])
-    }
-
-    test_getAllLongWords4() {
-        const arr = [['white', 'magenta'], ['blue', 'pink'], ['green', 'red', 'yellow']]
-        this.isEqual(`getAllLongWords(${JSON.stringify(arr)})`, tasks.getAllLongWords(arr), ['magenta', 'blue', 'yellow'])
-    }
-}
-
-new ArrayTests().runAll()
