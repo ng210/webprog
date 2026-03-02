@@ -58,9 +58,16 @@ export default class ArrayTasks {
     sumNumbersInMatrix(arr) {
         if (!arr) return []
         return arr.map(
-            row => row ? row
-            .reduce((szumma, item) => !isNaN(item) ? szumma + item : NaN, 0)
-            : NaN
+            // row => row != null ?
+            // row.reduce((szumma, item) => !isNaN(item) ? szumma + item : NaN, 0)
+            // : NaN
+            row => {
+                if (row != null) {
+                    return row.reduce((szumma, item) => !isNaN(item) ? szumma + item : NaN, 0)
+                } else {
+                    return NaN
+                }
+            }
         )
     }
 
