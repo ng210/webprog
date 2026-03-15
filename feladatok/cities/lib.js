@@ -236,8 +236,8 @@ class BrowserConsole extends ConsoleBase {
             this.#parent.appendChild(this.#console);
             window.addEventListener('resize', event => this.render());
         }
-        this.#console.style.top = `${this.#top}px`;
-        this.#console.style.height = (this.#console.parentNode.clientHeight - this.#top) + 'px';
+        // this.#console.style.top = `${this.#top}px`;
+        // this.#console.style.height = (this.#console.parentNode.clientHeight - this.#top) + 'px';
     }
 
 

@@ -1,11 +1,15 @@
 import { getConsole, Colors, readFromCsv } from './lib.js'
 import City from './city.js'
 
+//#region Inicializálás
 let cities = null
 let cons = await getConsole()
 //cons.setConsoleTop(300)
 cities = await readFromCsv('./cities.csv', City)
-
+window.onerror = (message, source, lineno, colno, error) => {
+    cons.error(`Hiba: ${error.stack}`)
+}
+//#endregion
 
 // Top3 népesség
 cons.writeln('\n1. Határozd meg és írd ki az 3 legnépesebb város nevét és népességét!', Colors.LightGreen)
@@ -24,7 +28,7 @@ cities
             lang.push(c.nyelv)
         return lang
     }, [])
-    .forEach(l => cons.writeln(l + ' euró'))
+    .fordEach(l => cons.writeln(l + ' euró'))
 
 // Erős, de "lassú"
 cons.writeln('\n3. Keresd meg és írd ki a lengyel nyelvű város nevezetességét!', Colors.LightGreen)
