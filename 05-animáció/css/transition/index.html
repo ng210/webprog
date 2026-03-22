@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS transition</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <h1>CSS Transition</h1>
+            <div id="content">
+                <div class="section">
+                    <h2>Transform, szín</h2>
+                    <div id="box1" class="box">
+                        <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="8,20, 24,20, 24,8, 56,32, 24,56, 24,44, 8,44" />
+                        </svg>
+                    </div>
+                    <div id="box2" class="box">
+                        <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="16" />
+                        </svg>
+                    </div>
+                    <div id="box3" class="box">
+                        <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="8,24, 24,24, 24,8, 40,8, 40,24, 56,24, 56,40, 40,40, 40,56, 24,56, 24,40, 8,40" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>Kártya</h2>
+                    <div>
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front"></div>
+                                <div class="card-back"></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front"></div>
+                                <div class="card-back"></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-inner">
+                                <div class="card-front"></div>
+                                <div class="card-back"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Pattogó labda</h2>
+                    <div class="container">
+                        <ball>
+                            <shadow />
+                        </ball>
+
+                        <ball>
+                            <shadow />
+                        </ball>
+
+                        <ball>
+                            <shadow />
+                        </ball>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Menü</h2>
+                    <div class="menu closed">
+                        <div onclick="openMenu(this)">Színek</div>
+                        <ul class="closed">
+                            <li>Piros</li>
+                            <li>Zöld</li>
+                            <li>Kék</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>Irányítható korong</h2>
+                    <div id="token"></div>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td><button id="up">fel</button></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><button id="left">balra</button></td>
+                            <td><button id="down">le</button></td>
+                            <td><button id="right">jobbra</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
