@@ -34,12 +34,7 @@ document.querySelectorAll('ball')
         b.addEventListener(
             'click',
             e => {
-                // let shadow = document.querySelector('.shadow')
                 e.target.classList.add('bounce')
-                // shadow.classList.add('small')
-                setTimeout(() => {
-                    e.target.classList.remove('bounce')
-                    // shadow.classList.remove('small')
-                }, 600)
+                setTimeout(() => e.target.classList.remove('bounce'), 600)
             })
     })
