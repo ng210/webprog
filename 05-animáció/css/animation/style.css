@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #eee;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+/* 1. Mozgás */
+.move-box {
+  width: 50px;
+  height: 50px;
+  background: red;
+  animation: move 2s infinite alternate;
+}
+
+@keyframes move {
+  from { transform: translateX(0); }
+  to { transform: translateX(200px); }
+}
+
+/* 2. Több lépés */
+.multi-box {
+  width: 50px;
+  height: 50px;
+  background: blue;
+  animation: moveColor 3s infinite;
+}
+
+@keyframes moveColor {
+  0% {
+    transform: translateX(0);
+    background: blue;
+  }
+  50% {
+    transform: translateX(150px);
+    background: green;
+  }
+  100% {
+    transform: translateX(0);
+    background: blue;
+  }
+}
+
+/* 3. Pattogó labda */
+.ball {
+  width: 50px;
+  height: 50px;
+  background: orange;
+  border-radius: 50%;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(150px); }
+}
+
+/* 4. Loader */
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 5px solid lightgray;
+  border-top: 5px solid purple;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 5. Hover animáció */
+.hover-box {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+.hover-box:hover {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+/* 6. Végtelen háttér */
+.bg {
+  width: 100%;
+  height: 200px;
+  background: url('https://picsum.photos/800/200') repeat-x;
+  animation: scrollBg 10s linear infinite;
+}
+
+@keyframes scrollBg {
+  from { background-position: 0 0; }
+  to { background-position: 800px 0; }
+}
