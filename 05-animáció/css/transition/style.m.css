@@ -1,0 +1,252 @@
+/*****************************************************************************/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 1em;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(#124 60%, #000);
+    font-size: 24pt;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    border: outset 2px #ccc4;
+    box-shadow: 4px 3px 8px #0004;
+    background: radial-gradient(#fff, 40%, #adf);
+}
+
+h1 {
+    margin: 0;
+    padding: 20pt;
+    height: 80pt;
+    background-color: #fff8;
+    border-bottom: groove 2px #0004;
+    text-align: center;
+    font-size: 40pt;
+    transition: all 0.2s;
+}
+
+h1:hover {
+    padding: 21pt;
+    font-size: 30pt;
+    background-color: #fff;
+}
+
+#content {
+    margin: 1em;
+    height: 100%;
+    background-color: #0004;
+    overflow: auto;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #fff4;
+}
+
+div.section {
+    border: solid 2px black;
+    /* height: 20em; */
+    margin: 1em 1em 2em 2em;
+    padding: 0em 0em 2em 0em;
+}
+
+
+/*****************************************************************************/
+div.box {
+    width: 64px;
+    height: 64px;
+    margin: 1em;
+    transition: transform 1s;
+}
+
+#box1 {
+    border: outset 2px #da5;
+    background-color: #a84;
+}
+
+#box1:hover {
+    transform: translateX(200px)
+}
+
+#box2 {
+    border: outset 2px #ad5;
+    background-color: #8a4;
+}
+
+#box2>svg>circle {
+    fill: #75b;
+    transition: fill 1s;
+}
+
+#box2>svg>circle:hover {
+    fill: white;
+}
+
+#box3 {
+    border: outset 2px #5ad;
+    background-color: #48a;
+}
+
+#box3:hover {
+    transform: scale(2.0)
+}
+
+/*****************************************************************************/
+div.section:nth-child(2)>div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.card {
+    margin: 2em 2em 0em 2em;
+    width: 200px;
+    height: 314px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+}
+
+.card-front {
+    background: url(ace-front.png);
+}
+
+.card-back {
+    background: url(ace-back.png);
+    transform: rotateY(180deg);
+}
+
+
+.container {
+    position: relative;
+    height: 200px;
+    border-bottom: 4px solid #333;
+}
+
+ball {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    transform: translateY(0);
+    transition: transform 0.6s ease-in;
+}
+
+ball.bounce {
+    transform: translateY(-120px);
+    transition: transform 0.6s ease-out;
+}
+
+
+div.menu {
+    margin: 1em;
+    padding: 0;
+    width: 4em;
+    background-color: silver;
+    font-weight: bold;
+    font-size: larger;
+    box-shadow: 4px 3px 8px #0008;
+    overflow: hidden;
+}
+
+div.section:nth-child(4) {
+    height: 10em;
+}
+
+div.menu>div {
+    width: 100%;
+    text-align: center;
+    border: outset 2px;
+    cursor: pointer;
+    background-color: white;
+    transition: all ease-out 1s;
+}
+
+div.menu>ul {
+    margin: 0;
+    cursor: pointer;
+    height: 3.5em;
+    transition: all 1s;
+}
+
+div.menu>ul.closed {
+    height: 0em;
+}
+
+div.menu li {
+    list-style: none;
+    transition: transform ease-in-out 0.5s;
+}
+
+div.menu li:hover {
+    transform: scale(1.2);
+}
+
+div.menu li:nth-child(1) {
+    color: red;
+}
+
+div.menu li:nth-child(2) {
+    color: green;
+}
+
+div.menu li:nth-child(3) {
+    color: blue;
+}
+
+
+
+div.section:nth-child(5) {
+    height: 20em;
+}
+
+#token {
+    width: 64px;
+    height: 64px;
+    border: outset 4px #5ad;
+    border-radius: 32px;
+    background-color: #48a;
+    transition: transform 0.5s;
+    box-shadow: 8px 6px 4px #0004;
+    position: relative;
+}
+
+button {
+    font-size: large;
+}
+
+button.active {
+    background-color: #fa8;
+}
