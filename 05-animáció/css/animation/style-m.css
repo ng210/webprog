@@ -23,12 +23,17 @@ h2 {
     height: 50px;
     background: red;
     /* animation 2sec végtelenszer oda-vissza */
+    animation: 2s infinite alternate move;
 }
 
 /* keyframes move
   1. frame: x eltolás -100px
   2. frame: x eltolás 100px
 */
+@keyframes move {
+    from { transform: translateX(-100px) }
+    to { transform: translateX(100px) }
+}
 
 /* 2. Több lépés */
 .multi-box {
@@ -36,6 +41,7 @@ h2 {
     height: 50px;
     background: blue;
     /* animation 4sec végtelenszer oda-vissza lineárisan */
+    animation: 3s linear infinite alternate moveColor;
 }
 
 /* keyframes moveColor
@@ -43,6 +49,11 @@ h2 {
   2. frame: eltolás    0px, 50px, háttér piros
   3. frame: eltolás  100px,  0px, háttér zöld
 */
+@keyframes moveColor {
+     0% { transform: translate(-100px,  0px); background-color: blue; }
+    50% { transform: translate(   0px, 50px); background-color: red; }
+   100% { transform: translate( 100px,  0px); background-color: green; }
+}
 
 /* 3. Pattogó labda */
 .ball {
@@ -51,6 +62,7 @@ h2 {
     background: orange;
     border-radius: 50%;
     /* animation 0.6sec végtelenszer oda-vissza ease-in */
+    animation: 0.6s ease-in infinite alternate bounce;
 }
 
 /* keyframes bounce
@@ -58,6 +70,11 @@ h2 {
   2. frame:  90% y 120px, scale-y 1.0
   3. frame: 100% y 150px, scale-y: 0.8
 */
+@keyframes bounce {
+     0% { transform: translateY(  0px); }
+    90% { transform: translateY(120px) scaleY(1.0); }
+   100% { transform: translateY(150px) scaleY(0.8); }
+}
 
 /* 4. Loader */
 .loader {
@@ -67,11 +84,15 @@ h2 {
     border-top: 5px solid purple;
     border-radius: 50%;
     /* animation 1sec végtelenszer linárisan */
+    animation: 1s linear infinite spin;
 }
 
 /* keyframes spin
     1. forgatás 360 fokkal
 */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
 
 /* 5. Hover animáció */
 .hover-box {
@@ -83,6 +104,7 @@ h2 {
 .hover-box:hover {
     border: solid 1px darkred;
     /* animation 0.3sec oda-vissza */
+    animation: 0.3s linear alternate shake;
 }
 
 /* keyframes shake
@@ -92,6 +114,13 @@ h2 {
   4. frame:  75% x  10px
   5. frame: 100% x   0px
 */
+@keyframes shake {
+     0% { transform: translateX(  0px); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(  0px); }
+    75% { transform: translateX( 10px); }
+   100% { transform: translateX(  0px); }
+}
 
 /* 6. Végtelen háttér */
 .bg {
@@ -99,6 +128,7 @@ h2 {
     height: 300px;
     background: url('landscape.jpg') repeat-x;
     /* animation 6sec végtelenszer lineárisan */
+    animation: 6s linear infinite scrollBg;
 }
 
 .fg {
@@ -112,6 +142,10 @@ h2 {
     1. frame: bg x pozíció   0px
     2. frame: bg x pozíció 612px
 */
+@keyframes scrollBg {
+      0% { background-position-x:   0px; }
+    100% { background-position-x: 612px; }
+}
 
 .sec-bg {
     height: 500px
@@ -120,6 +154,7 @@ h2 {
 
 .bg.mario {
     /* animation 4sec végtelenszer lineárisan */
+    animation: 4s linear infinite scrollBg;
 }
 
 #mario {
@@ -131,6 +166,7 @@ h2 {
     background-position: 0px  0px;
     left: 50%; top: 220px;
     /* animation 1sec végtelenszer step-end */
+    animation: 1s step-end infinite mario-run;
 }
 /*
     keyframes mario-run
@@ -144,6 +180,17 @@ h2 {
         8. frame:  91% bg x pozíció -368px
         9. frame: 100% bg x pozíció  -46px
 */
+@keyframes mario-run {
+      0% { background-position-x:  -46px; }
+     12% { background-position-x:  -92px; }
+     31% { background-position-x: -138px; }
+     41% { background-position-x: -184px; }
+     50% { background-position-x: -230px; }
+     62% { background-position-x: -276px; }
+     81% { background-position-x: -322px; }
+     91% { background-position-x: -368px; }
+    100% { background-position-x:  -46px; }
+}
 
 #sonic {
     position: relative;
@@ -154,6 +201,7 @@ h2 {
     background-position: 0px 0px;
     left: 40%; top: 180px;
     /* animation 0.8sec végtelenszer step-end */
+    animation: 0.8s step-end infinite sonic-run;
 }
 
 /*
@@ -165,7 +213,44 @@ h2 {
         5. frame: 65% bg x pozíció -164px
         6. frame: 87% bg x pozíció -205px
 */
+@keyframes sonic-run {
+      0% { background-position-x:    0px; }
+     14% { background-position-x:  -41px; }
+     36% { background-position-x:  -82px; }
+     50% { background-position-x: -123px; }
+     65% { background-position-x: -164px; }
+     87% { background-position-x: -205px; }
+}
 
+#mj {
+    position: relative;
+    width: 26px;
+    height: 56px;
+    transform: translateX(0px) scale(4.0);
+    background-image: url('michael-jackson.png');
+    background-position: -0px  0px;
+    left: 60%; top: 80px;
+    /* animation 1.2sec végtelenszer step-end */
+    animation: 1.4s step-end infinite mj-run;
+}
+
+/*
+    keyframes mj-run
+        1. frame:  0% bg pozíció-x    0x
+        2. frame: 14% bg pozíció-x  -27x
+        3. frame: 36% bg pozíció-x  -54x
+        4. frame: 50% bg pozíció-x  -81x
+        5. frame: 65% bg pozíció-x -108x
+        6. frame: 87% bg pozíció-x -135x
+*/
+@keyframes mj-run {
+      0% { background-position-x:    0px; }
+     14% { background-position-x:  -27px; }
+     34% { background-position-x:  -54px; }
+     50% { background-position-x:  -81px; }
+     66% { background-position-x: -108px; }
+     86% { background-position-x: -135px; }
+}
 
 #cody {
     position: relative;
@@ -174,8 +259,9 @@ h2 {
     transform: translateX(0px);
     background-image: url('cody.png');
     background-position: -0px  0px;
-    left: 70%; top: -60px;
+    left: 70%; top: -100px;
     /* animation 1.2sec végtelenszer step-end */
+    animation: 1.2s step-end infinite cody-run;
 }
 
 /*
@@ -193,3 +279,17 @@ h2 {
        11. frame: 65% bg pozíció  -768px -312px, x eltolás  0px, szélesség 192px
        12. frame: 87% bg pozíció  -972px -312px, x eltolás 48px, szélesség  96px
 */
+@keyframes cody-run {
+      0% { background-position:    0px    0px; transform: translateX(  0px) scaleX(-1.0); width: 144px }
+      8% { background-position: -156px    0px; transform: translateX(  0px) scaleX(-1.0); width: 192px }
+     17% { background-position: -360px    0px; transform: translateX(  0px) scaleX(-1.0); width: 192px }
+     25% { background-position: -564px    0px; transform: translateX(  0px) scaleX(-1.0); width: 192px }
+     33% { background-position: -768px    0px; transform: translateX(  0px) scaleX(-1.0); width: 192px }
+     41% { background-position: -972px    0px; transform: translateX( 48px) scaleX(-1.0); width:  96px }
+     49% { background-position:    0px -312px; transform: translateX(  0px) scaleX(-1.0); width: 144px }
+     57% { background-position: -156px -312px; transform: translateX( 24px) scaleX(-1.0); width: 192px }
+     66% { background-position: -360px -312px; transform: translateX(  0px) scaleX(-1.0); width: 192px }
+     74% { background-position: -564px -312px; transform: translateX(  0px) scaleX(-1.0); width: 192px }
+     82% { background-position: -768px -312px; transform: translateX(  0px) scaleX(-1.0); width: 192px }
+     91% { background-position: -972px -312px; transform: translateX( 48px) scaleX(-1.0); width:  96px }
+}

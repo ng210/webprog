@@ -5,5 +5,7 @@
     { "name":"Teszt", "url":"./teszt/index.html" },
     { "name":"String feladatok", "url":"./04-built-in/string/index.html" },
     { "name":"Array feladatok", "url":"./04-built-in/array/index.html" },
-    { "name":"Regex feladatok", "url":"./04-built-in/regex/index.html" }
+    { "name":"Regex feladatok", "url":"./04-built-in/regex/index.html" },
+    { "name":"CSS transition", "url":"./05-animáció/css/transition/index.html" },
+    { "name":"CSS animation", "url":"./05-animáció/css/animation/index.html" }
 ]
