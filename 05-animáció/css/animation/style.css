@@ -1,10 +1,16 @@
 body {
     margin: 0;
+    padding: 1em;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(#124 60%, #000);
+    font-size: 24pt;
     font-family: Arial, sans-serif;
 }
 
 section {
     margin: 2em;
+    width: 60%;
     height: 50vh;
     display: flex;
     flex-direction: column;
