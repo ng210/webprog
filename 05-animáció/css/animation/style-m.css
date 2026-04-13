@@ -135,7 +135,7 @@ h2 {
 @keyframes bounce {
      0% { transform: translateY(  0px); }
     90% { transform: translateY(120px) scaleY(1.0); }
-   100% { transform: translateY(150px) scaleY(0.8); }
+   100% { transform: translateY(150px) scaleY(0.6); }
 }
 
 /* 4. Loader */
