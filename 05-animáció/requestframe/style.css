@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 1em;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(#124 60%, #000);
+    font-size: 24pt;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    border: outset 2px #ccc4;
+    box-shadow: 4px 3px 8px #0004;
+    background: radial-gradient(#fff, 40%, #adf);
+}
+
+h1 {
+    margin: 0;
+    padding: 20pt;
+    height: 80pt;
+    background-color: #fff8;
+    border-bottom: groove 2px #0004;
+    text-align: center;
+    font-size: 40pt;
+    /* minden tulajdonság animálása */
+}
+
+h1:hover {
+    padding: 21pt;
+    /* betűméret 30pt
+     háttérszín fehér*/
+}
+
+#content {
+    margin: 1em;
+    height: 100%;
+    background-color: #0004;
+    overflow: auto;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #fff4;
+}
+
+section {
+    border: solid 2px black;
+    height: 40vh;
+    margin: 1em 1em 2em 2em;
+    padding: 0em 0em 2em 0em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 1. Mozgás */
+.move-box {
+    width: 50px;
+    height: 50px;
+    background: red;
+    /* animation 2sec végtelenszer oda-vissza */
+}
