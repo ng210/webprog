@@ -1,0 +1,35 @@
+1. Labirintus + kulcsok
+A játékos egy pályán mozog (mint a Pac-Man), de csak akkor jut ki, ha összegyűjt minden kulcsot — közben csapdák és zárt ajtók nehezítik.
+
+2. Színes blokkok törlése
+Tetris-szerű játék, de itt az azonos színű blokkok eltűnnek, ha egymás mellé kerülnek (match mechanika).
+
+3. Minimalista aknakereső
+A Minesweeper leegyszerűsített verziója kisebb pályával és vizuális segédekkel.
+
+4. Számkitalálós logika
+A játék ad egy titkos számsort, és visszajelzést ad (pl. hány szám jó helyen van) — mint egy egyszerű “Mastermind”.
+
+5. Tolós blokk puzzle
+A játékos ládákat tol (Sokoban-stílus), hogy célmezőkre juttassa őket.
+
+6. Fénykapcsolós puzzle
+Egy rácson lámpákat kell fel/le kapcsolni úgy, hogy minden világítson — egy kapcsoló több mezőt is befolyásol.
+
+7. Útvonalrajzoló játék
+Két pontot kell összekötni úgy, hogy az út nem keresztezheti önmagát és lefedje a teljes pályát.
+
+8. Memória + logika kombináció
+Nem klasszikus memória (mint a Fekete Péter), hanem párosítás szabályok alapján (pl. szám + szín kombinációk).
+
+9. Forgatható csövek
+Csődarabokat kell forgatni, hogy a víz eljusson A pontból B-be.
+
+10. Időzített lépések puzzle
+Minden lépés után változik a pálya (pl. falak mozognak), ezért előre kell gondolkodni.
+
+11. Egér és sajt
+Egy kis pályán az egeret kell a sajthoz vezetni, miközben akadályokat kell aktiválni (karok, ajtók).
+
+12. Szimmetria puzzle
+A pálya egyik felét kell tükrözni a másik oldalra, hogy megfeleljen egy mintának.
