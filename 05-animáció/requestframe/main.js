@@ -79,5 +79,67 @@ function moveBox2() {
     requestAnimationFrame(animate)
 }
 
+function multiBox() {
+    const box = document.querySelector('#box3')
+
+    const duration = 3000                       // időtartam 3 sec
+    const frames = [[-100,0],[0,50],[100,0]]    // koordináták 3 frame-ben
+    let elapsed = 0
+    let lasttime = -1
+    
+    function animate(timestamp) {
+        if (lasttime == -1) {
+            lasttime = timestamp
+        }
+
+        // az utolsó animálás óta eltelt idő
+        const dt = lasttime - timestamp
+        // gyűjtjük az eltelt időt
+        elapsed += dt
+        // az animáció előrehaladása = eltelt idő és az időtartam hányadosa
+        let progress = elapsed / duration
+
+        // a progress alapján olvassuk ki a megfelelő frame adatait,
+        // és számítsuk ki az aktuális koordinátákat.
+        // A mozgatást ezúttal ne a transform-translate végezze el,
+        // hanem közvetlenül a left és top attribútumok módosításával.
+        // Az animáció oda-vissza fusson!
+
+        lasttime = timestamp
+        requestAnimationFrame(animate)
+    }
+
+    requestAnimationFrame(animate)
+}
+
+function bouncingBalls() {
+    // Hozz létre 10 darab DIV elemet "ball" CSS osztállyal.
+    // Legyen véletlenszerű
+    //  - a kezdőpozíciójuk  a szülő section elemen belül,
+    //  - a háttérszínűk,
+    //  - a sebességvektoruk.
+
+    let lasttime = -1
+    
+    function animate(timestamp) {
+        if (lasttime == -1) {
+            lasttime = timestamp
+        }
+
+        // az utolsó animálás óta eltelt idő
+        const dt = lasttime - timestamp
+        // mozgass minden labdát a sebességvektora szerint,
+        // ha a labda a section területének szélére ér, pattanjon vissza
+        // extra: kezeld a labdák ütközését
+
+        lasttime = timestamp
+        requestAnimationFrame(animate)
+    }
+
+    requestAnimationFrame(animate)
+}
+
 moveBox1()
 moveBox2()
+multiBox()
+bouncingBalls()

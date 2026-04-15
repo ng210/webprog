@@ -72,3 +72,12 @@ section {
     background: red;
     /* animation 2sec végtelenszer oda-vissza */
 }
+
+
+.ball {
+    position: absolute;
+    background: green;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+}
