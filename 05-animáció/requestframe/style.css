@@ -57,7 +57,7 @@ h2 {
 section {
     position: relative;
     border: solid 2px black;
-    height: 40vh;
+    height: 320px;
     margin: 1em 1em 2em 2em;
     padding: 0em 0em 2em 0em;
     display: flex;

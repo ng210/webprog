@@ -82,10 +82,16 @@ function moveBox2() {
 function multiBox() {
     const box = document.querySelector('#box3')
 
-    const duration = 3000                       // időtartam 3 sec
-    const frames = [[-100,0],[0,50],[100,0]]    // koordináták 3 frame-ben
+    // időtartam 2 sec
+    const duration = 2000
+    // 3 frame
+    const frames = [[-100,0],[0,50],[100,0]]
+    // egy frame ideje = időtartam / frame-ek száma
+    const frameTime = Math.trunc(duration / (frames.length - 1))
+    let frameId = 0
     let elapsed = 0
     let lasttime = -1
+    // a doboz aktuális pozíciója (x,y)
     let pos = [0, 0]
     
     function animate(timestamp) {
@@ -97,24 +103,22 @@ function multiBox() {
         const dt = timestamp - lasttime
         // gyűjtjük az eltelt időt
         elapsed += dt
-        // az animáció előrehaladása = eltelt idő és az időtartam hányadosa
-        let progress = elapsed / duration
-
-        // a progress alapján olvassuk ki a megfelelő frame adatait,
-        // és számítsuk ki az aktuális koordinátákat.
-        let frameId = Math.trunc(progress*2)
-        if (frameId > 1) {
+        // ha a frame idejét eléri, jöhet a következő frame
+        if (elapsed >= frameTime) {
             elapsed = 0
-            frameId = 0
+            pos[0] = frames[frameId][0]
+            pos[1] = frames[frameId][1]
+            frameId = (frameId + 1) % frames.length
         }
-        let frame1 = frames[frameId]
-        let frame2 = frames[frameId + 1]
+
+        // az animáció előrehaladása = eltelt idő / frame időtartam
+        let progress = elapsed / frameTime
+
         // A mozgatást ezúttal ne a transform-translate végezze el,
         // hanem közvetlenül a left és top attribútumok módosításával.
-        const dx = frame2[0] - frame1[0]
-        const dy = frame2[1] - frame1[1]
-        pos[0] += dx * dt
-        pos[1] += dy * dt
+        const frame1 = frames[frameId]
+        pos[0] = frame1[0]
+        pos[1] = frame1[1]
         box.style.left = (box.parentNode.clientWidth / 2 + pos[0]) + 'px'
         box.style.top = (box.parentNode.clientHeight / 2 + pos[1]) + 'px'
         // Az animáció oda-vissza fusson!
@@ -153,7 +157,7 @@ function bouncingBalls() {
     requestAnimationFrame(animate)
 }
 
-moveBox1()
-moveBox2()
+// moveBox1()
+// moveBox2()
 multiBox()
 bouncingBalls()
