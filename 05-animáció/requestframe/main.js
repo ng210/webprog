@@ -86,6 +86,7 @@ function multiBox() {
     const frames = [[-100,0],[0,50],[100,0]]    // koordináták 3 frame-ben
     let elapsed = 0
     let lasttime = -1
+    let pos = [0, 0]
     
     function animate(timestamp) {
         if (lasttime == -1) {
@@ -93,7 +94,7 @@ function multiBox() {
         }
 
         // az utolsó animálás óta eltelt idő
-        const dt = lasttime - timestamp
+        const dt = timestamp - lasttime
         // gyűjtjük az eltelt időt
         elapsed += dt
         // az animáció előrehaladása = eltelt idő és az időtartam hányadosa
@@ -101,8 +102,21 @@ function multiBox() {
 
         // a progress alapján olvassuk ki a megfelelő frame adatait,
         // és számítsuk ki az aktuális koordinátákat.
+        let frameId = Math.trunc(progress*2)
+        if (frameId > 1) {
+            elapsed = 0
+            frameId = 0
+        }
+        let frame1 = frames[frameId]
+        let frame2 = frames[frameId + 1]
         // A mozgatást ezúttal ne a transform-translate végezze el,
         // hanem közvetlenül a left és top attribútumok módosításával.
+        const dx = frame2[0] - frame1[0]
+        const dy = frame2[1] - frame1[1]
+        pos[0] += dx * dt
+        pos[1] += dy * dt
+        box.style.left = (box.parentNode.clientWidth / 2 + pos[0]) + 'px'
+        box.style.top = (box.parentNode.clientHeight / 2 + pos[1]) + 'px'
         // Az animáció oda-vissza fusson!
 
         lasttime = timestamp
