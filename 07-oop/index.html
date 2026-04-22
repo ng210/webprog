@@ -15,30 +15,49 @@
             <section>
                 <h2>1. Egységbe zárás - Osztály definíció</h2>
                 <div class="code">
+class Entity {
+    id
+    name
+
+    constructor(obj) {
+        this.id = parseInt(obj.unit_id)
+        this.name = obj.name
+    }
+
+    toString() {
+        return `${this.name} (${id})`
+    }
+}
                 </div>
             </section>
 
             <section>
                 <h2>2. Öröklés</h2>
                 <div class="code">
+    class Unit extends Entity {
+     ...
                 </div>
             </section>
 
             <section>
                 <h2>3. Polimorfizmus</h2>
                 <div class="code">
+                    Nem úgy működik mint C#-ban.
+                    method(arg1, arg2, ...)
                 </div>
             </section>
 
             <section>
                 <h2>4. Absztrakció</h2>
                 <div class="code">
+                    Nyelvi szinten nem létezik, mindig minden osztály példányosítható.
                 </div>
             </section>
 
             <section>
                 <h2>Beolvasás objektum listába</h2>
                 <div class="code">
+                    "Klasszikus" python és C# feladat JS megfelelője.
                 </div>
             </section>
         </div>
