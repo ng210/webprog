@@ -1,5 +1,7 @@
 import { GrpEdge, GrpVertex, Graph } from "../../lib/graph.js"
 
+const DURATION = 80
+
 export default class Maze extends Graph {
     width
     height
@@ -21,7 +23,6 @@ export default class Maze extends Graph {
         super()
         this.width = width
         this.height = height
-        this.generate()
     }
 
     generate(rand = 0.0) {
@@ -45,19 +46,28 @@ export default class Maze extends Graph {
             }
         }
 
-        for (const vi of this.#graph.vertices) {
-            const ei = Math.trunc(vi.edgesOut.length * Math.random())
-            const edge1 = vi.edgesOut[ei]
+        const vertices = [...this.#graph.vertices]
+        while (vertices.length > 0) {
+            const vi = Math.trunc(vertices.length * Math.random())
+            const vertex = vertices[vi]
+            if (vertex.edgesOut.length < 3) {
+                vertices.splice(vi, 1)
+                continue
+            }
+            const ei = Math.trunc(vertex.edgesOut.length * Math.random())
+            const edge1 = vertex.edgesOut[ei]
             const edge2 = edge1.reverse
-            const wi = edge1.data.weight
+            const wi1 = edge1.data.weight
+            const wi2 = edge2.data.weight
             edge1.data.weight = Infinity
             edge2.data.weight = Infinity
             if (this.findAPath(edge1.vertexStart, edge1.vertexEnd)) {
                 this.#graph.removeEdge(edge1)
                 this.#graph.removeEdge(edge2)
             } else {
-                edge1.data.weight = wi
-                edge2.data.weight = wi
+                edge1.data.weight = wi1
+                edge2.data.weight = wi2
+                vertices.splice(vi, 1)
             }
         }
     }
@@ -124,6 +134,14 @@ export default class Maze extends Graph {
         return null; // no path found
     }
 
+    movePlayerToHtmlCell(cell) {
+        const wi = cell.offsetWidth/2
+        const he = cell.offsetHeight/2
+        const x = cell.offsetLeft - this.#view.offsetLeft
+        const y = cell.offsetTop - this.#view.offsetTop
+        this.#player.style.transform = `translate(${x + wi/2}px, ${y + he/2}px)`
+    }
+
     renderAsHtml(container) {
         this.#view = document.createElement('maze')
         this.#view.style.display = 'grid'
@@ -136,6 +154,7 @@ export default class Maze extends Graph {
         for (let v of this.#graph) {
             let cell = document.createElement('cell')
             cell.id = v.id
+            cell.innerText = v.edgesIn.length
             cell.vertex = v
             for (let d of directions) {
                 cell.style[`border${d}Style`] = 'solid'
@@ -152,11 +171,13 @@ export default class Maze extends Graph {
         this.#player.className = 'player'
         this.#player.style.position = 'absolute'
         this.#player.style.backgroundColor = 'red'
+        this.#player.style.transition = `transform ${0.0009*DURATION}s linear`
 
-        const size = cell.clientWidth
-        this.#player.style.width = (size>>1)+'px'
-        this.#player.style.height = (size>>1)+'px'
-        this.#player.style.transform = `translate(${size>>2}px, ${size>>2}px)`
+        const wi = cell.offsetWidth/2
+        const he = cell.offsetHeight/2
+        this.#player.style.width = wi+'px'
+        this.#player.style.height = he+'px'
+        this.movePlayerToHtmlCell(cell)
         this.#view.appendChild(this.#player)
 
         for (let e of this.#graph.edges) {
@@ -176,17 +197,18 @@ export default class Maze extends Graph {
                 this.#lastTs = ts
             }
             let elapsed = ts - this.#lastTs
-            if (elapsed > 320) {
-                elapsed -= 320
+            if (elapsed > DURATION) {
+                elapsed -= DURATION
                 this.#lastTs = ts
-                this.#startCell = this.#route.pop()
-                const next = this.#startCell.view
-                const size = next.clientWidth
-                const x = next.offsetLeft - this.#view.offsetLeft
-                const y = next.offsetTop - this.#view.offsetTop
-                this.#player.style.transform = `translate(${x + (size>>2)}px, ${y + (size>>2)}px)`
+                this.#startCell = this.#route.pop().view
+                const next = this.#startCell
+                // const size = next.clientWidth
+                // const x = next.offsetLeft - this.#view.offsetLeft
+                // const y = next.offsetTop - this.#view.offsetTop
+                this.movePlayerToHtmlCell(next)
+                //this.#player.style.transform = `translate(${x + (size>>2)}px, ${y + (size>>2)}px)`
             }
-            requestAnimationFrame(t => this.animate(t))
+            this.#rafId = requestAnimationFrame(t => this.animate(t))
         } else {
             this.#startCell = this.#endCell
         }
@@ -195,6 +217,7 @@ export default class Maze extends Graph {
     htmlOnclick(cell, e) {
         if (cell.tagName.toLowerCase() == 'cell') {
             this.#endCell = cell
+            cancelAnimationFrame(this.#rafId)
             this.#route = this.findAPath(this.#startCell.vertex, this.#endCell.vertex)
             if (this.#route) {
                 this.#rafId = requestAnimationFrame(ts => this.animate(ts))
