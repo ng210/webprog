@@ -34,30 +34,55 @@ class Entity {
             <section>
                 <h2>2. Öröklés</h2>
                 <div class="code">
-    class Unit extends Entity {
-     ...
+class Unit extends Entity {
+...
                 </div>
             </section>
 
             <section>
                 <h2>3. Polimorfizmus</h2>
                 <div class="code">
-                    Nem úgy működik mint C#-ban.
-                    method(arg1, arg2, ...)
+<span class="comment">
+// Nem úgy működik mint C#-ban.
+// Csak egy metódust hozhatunk létre, de
+// - a paraméterek száma és
+// - típusa nem kötött
+</span>
+method(arg1, arg2, ...) {
+    if (typeof arg1 === 'number') {
+        ...
+    } else if (typeof arg1 === 'string') {
+        ...
+    }
+}
                 </div>
             </section>
 
             <section>
                 <h2>4. Absztrakció</h2>
                 <div class="code">
-                    Nyelvi szinten nem létezik, mindig minden osztály példányosítható.
+<span class="comment">
+// Nyelvi szinten nem létezik, mindig minden osztály példányosítható.
+// Egy lehetséges megoldás az, hogy az absztraktnak szánt osztály
+// metódusait nem implementáljuk:
+</span>
+class Base { <span class="comment">// absztrakt ős</span>
+    readFromCsv(line) {
+        throw new Error('Not implemented')
+    }
+}
+
                 </div>
             </section>
 
             <section>
-                <h2>Beolvasás objektum listába</h2>
+                <h2>Beolvasás példány listába</h2>
                 <div class="code">
-                    "Klasszikus" python és C# feladat JS megfelelője.
+<span class="comment">
+// "Klasszikus" python és C# feladat JS megfelelője.
+// - olvasd be a megadott URL-ről a CSV állományt
+// - minden sorból hozz létre egy példányt
+</span>
                 </div>
             </section>
         </div>

@@ -1,13 +1,12 @@
 import Unit from './classes/unit.js'
 
-const _url = 'https://ng210.github.io/static-api/scifi_db/units.json'
 let _unitList = null
 
+// Implementáld az alábbi metódust, amely a megadott url-ről
+// letöltött adatokból egy Unit példányokból álló listát állít elő.
 async function loadUnitList(url) {
-    return await fetch(url)
-            .then(resp => resp.json())
-            .then(list => list.map(obj => new Unit(obj)))
-            .catch(err => alert(err))
+    return null
 }
 
+const _url = ''
 _unitList = await loadUnitList(_url)
