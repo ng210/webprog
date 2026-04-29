@@ -1,12 +1,14 @@
 import { GrpEdge, GrpVertex, Graph } from "../../lib/graph.js"
 
-const DURATION = 80
+const DURATION = 200
+const ENEMY_COUNT = 3
 
 export default class Maze extends Graph {
     width
     height
     #view
     #graph
+    #map = []
 
     #route = []
     #selectPhase = 0
@@ -14,6 +16,8 @@ export default class Maze extends Graph {
     #endCell
 
     #player = null
+    #food = []
+    #enemies = []
 
     static get observedAttributes() {
         return ['x', 'y', 'data'];
@@ -25,50 +29,83 @@ export default class Maze extends Graph {
         this.height = height
     }
 
-    generate(rand = 0.0) {
+    generate(rand = 0.0, density = 0.0) {
         this.#graph = new Graph()
-        let current, left, topRow = new Array(this.width)
         for (let j = 0; j < this.height; j++) {
+            this.#map.push([])
             for (let i = 0; i < this.width; i++) {
-                current = this.#graph.addVertex({ x: i, y: j })
+                let current = this.#graph.addVertex({ x: i, y: j })
+                this.#map[j].push(current)
                 if (i > 0) {
-                    const edge = this.#graph.addEdge(current, left, { direction: 0, weight: 1})
-                    edge.reverse = this.#graph.addEdge(left, current, { direction: 2, weight: 1})
+                    const edge = this.#graph.addEdge(current, this.#map[j][i-1], { direction: 0, weight: 1})
+                    edge.reverse = this.#graph.addEdge(this.#map[j][i-1], current, { direction: 2, weight: 1})
                     edge.reverse.reverse = edge
                 }
                 if (j > 0) {
-                    const edge = this.#graph.addEdge(current, topRow[i], { direction: 1, weight: 1})
-                    edge.reverse = this.#graph.addEdge(topRow[i], current, { direction: 3, weight: 1})
+                    const edge = this.#graph.addEdge(current, this.#map[j-1][i], { direction: 1, weight: 1})
+                    edge.reverse = this.#graph.addEdge(this.#map[j-1][i], current, { direction: 3, weight: 1})
                     edge.reverse.reverse = edge
                 }
-                left = current
-                topRow[i] = current
             }
         }
 
         const vertices = [...this.#graph.vertices]
-        while (vertices.length > 0) {
-            const vi = Math.trunc(vertices.length * Math.random())
-            const vertex = vertices[vi]
-            if (vertex.edgesOut.length < 3) {
+        const max = vertices.length * density
+        for (let di=0; di<max; di++) {
+            while (vertices.length > 0) {
+                const vi = Math.trunc(vertices.length * Math.random())
+                const vertex = vertices[vi]
+                if (vertex.degreeOut > 2) {
+                    const eix = vertex.edgesOut.map((e, ix) => ix)
+                    while (eix.length > 0) {
+                        const ei = Math.trunc(eix.length * Math.random())
+                        const edge1 = vertex.edgesOut[eix[ei]]
+                        const wi1 = edge1.data.weight
+                        const wi2 = edge1.reverse.data.weight
+                        edge1.data.weight = Infinity
+                        edge1.reverse.data.weight = Infinity
+                        eix.splice(ei, 1)
+                        if (edge1.vertexEnd.degreeIn > 2 && this.findAPath(edge1.vertexStart, edge1.vertexEnd)) {
+                            this.#graph.removeEdge(edge1)
+                            this.#graph.removeEdge(edge1.reverse)
+                            break
+                        }
+                        edge1.data.weight = wi1
+                        edge1.reverse.data.weight = wi2
+                    }
+                }
                 vertices.splice(vi, 1)
-                continue
+
+                // const edge2 = edge1.reverse
+                // const wi1 = edge1.data.weight
+                // const wi2 = edge2.data.weight
+                // edge1.data.weight = Infinity
+                // edge2.data.weight = Infinity
+                // if (this.findAPath(edge1.vertexStart, edge1.vertexEnd)) {
+                //     this.#graph.removeEdge(edge1)
+                //     this.#graph.removeEdge(edge2)
+                // } else {
+                //     edge1.data.weight = wi1
+                //     edge2.data.weight = wi2
+                // }
             }
-            const ei = Math.trunc(vertex.edgesOut.length * Math.random())
-            const edge1 = vertex.edgesOut[ei]
-            const edge2 = edge1.reverse
-            const wi1 = edge1.data.weight
-            const wi2 = edge2.data.weight
-            edge1.data.weight = Infinity
-            edge2.data.weight = Infinity
-            if (this.findAPath(edge1.vertexStart, edge1.vertexEnd)) {
-                this.#graph.removeEdge(edge1)
-                this.#graph.removeEdge(edge2)
-            } else {
-                edge1.data.weight = wi1
-                edge2.data.weight = wi2
-                vertices.splice(vi, 1)
-            }
+        }
+
+        this.#player = {
+                x: 0, y: 0,
+                vertex: this.#map[0][0],
+                elapsed: 0,
+                duration: DURATION
+        }
+
+        for (let ei=0; ei<ENEMY_COUNT; ei++) {
+            const x = Math.trunc(this.width * Math.random())
+            const y = Math.trunc(this.height * Math.random())
+            this.#enemies.push({
+                x, y,
+                vertex: this.#map[y][x],
+                elapsed: 0,
+                duration: 2*DURATION/(0.5 + 0.5*Math.random()) })
         }
     }
 
@@ -134,12 +171,12 @@ export default class Maze extends Graph {
         return null; // no path found
     }
 
-    movePlayerToHtmlCell(cell) {
+    moveItemIntoHtmlCell(item, cell) {
         const wi = cell.offsetWidth/2
         const he = cell.offsetHeight/2
         const x = cell.offsetLeft - this.#view.offsetLeft
         const y = cell.offsetTop - this.#view.offsetTop
-        this.#player.style.transform = `translate(${x + wi/2}px, ${y + he/2}px)`
+        item.style.transform = `translate(${x + wi/2}px, ${y + he/2}px)`
     }
 
     renderAsHtml(container) {
@@ -167,18 +204,28 @@ export default class Maze extends Graph {
 
         const cell = this.#view.firstChild
         this.#startCell = cell
-        this.#player = document.createElement('div')
-        this.#player.className = 'player'
-        this.#player.style.position = 'absolute'
-        this.#player.style.backgroundColor = 'red'
-        this.#player.style.transition = `transform ${0.0009*DURATION}s linear`
+        this.#player.view = document.createElement('div')
+        this.#player.view.className = 'moving player'
+        this.#player.view.style.transition = `transform ${0.0009*DURATION}s linear`
 
         const wi = cell.offsetWidth/2
         const he = cell.offsetHeight/2
-        this.#player.style.width = wi+'px'
-        this.#player.style.height = he+'px'
-        this.movePlayerToHtmlCell(cell)
-        this.#view.appendChild(this.#player)
+        this.#player.view.style.width = wi+'px'
+        this.#player.view.style.height = he+'px'
+        this.moveItemIntoHtmlCell(this.#player.view, cell)
+        this.#view.appendChild(this.#player.view)
+
+        for (let ii=0; ii<ENEMY_COUNT; ii++) {
+            const enemy = this.#enemies[ii]
+            const view = document.createElement('div')
+            enemy.view = view
+            view.className = 'moving enemy'
+            view.style.transition = `transform ${0.0009*enemy.duration}s linear`
+            view.style.width = wi+'px'
+            view.style.height = he+'px'
+            this.#view.appendChild(view)
+            this.moveItemIntoHtmlCell(view, enemy.vertex.view)
+        }
 
         for (let e of this.#graph.edges) {
             const d = directions[e.data.direction]
@@ -188,40 +235,48 @@ export default class Maze extends Graph {
         container.appendChild(this.#view)
     }
 
-    #lastTs
-    #rafId
-    animate(ts) {
-        cancelAnimationFrame(this.#rafId)
+    animate(dt) {
+        //cancelAnimationFrame(this.#rafId)
         if (this.#route.length > 0) {
-            if (!this.#lastTs) {
-                this.#lastTs = ts
-            }
-            let elapsed = ts - this.#lastTs
-            if (elapsed > DURATION) {
-                elapsed -= DURATION
-                this.#lastTs = ts
+            // if (!this.#lastTs) {
+            //     this.#lastTs = ts
+            // }
+            this.#player.elapsed += dt //ts - this.#lastTs
+            if (this.#player.elapsed >= this.#player.duration) {
+                this.#player.elapsed -= this.#player.duration
+                //this.#lastTs = ts
                 this.#startCell = this.#route.pop().view
                 const next = this.#startCell
-                // const size = next.clientWidth
-                // const x = next.offsetLeft - this.#view.offsetLeft
-                // const y = next.offsetTop - this.#view.offsetTop
-                this.movePlayerToHtmlCell(next)
-                //this.#player.style.transform = `translate(${x + (size>>2)}px, ${y + (size>>2)}px)`
+                this.moveItemIntoHtmlCell(this.#player.view, next)
             }
-            this.#rafId = requestAnimationFrame(t => this.animate(t))
-        } else {
-            this.#startCell = this.#endCell
+            //this.#rafId = requestAnimationFrame(t => this.animate(t))
+        // } else {
+        //     this.#startCell = this.#endCell
+        }
+        for (let enemy of this.#enemies) {
+            enemy.elapsed += dt
+            if (enemy.elapsed >= enemy.duration) {
+                enemy.elapsed -= enemy.duration
+
+                const route = this.findAPath(enemy.vertex, this.#startCell.vertex)
+                if (route) {
+                    route.pop()
+                    const next = route.pop()
+                    if (next) {
+                        enemy.vertex = next
+                        this.moveItemIntoHtmlCell(enemy.view, next.view)
+                    }
+                }
+
+            }
         }
     }
 
     htmlOnclick(cell, e) {
         if (cell.tagName.toLowerCase() == 'cell') {
             this.#endCell = cell
-            cancelAnimationFrame(this.#rafId)
+            //cancelAnimationFrame(this.#rafId)
             this.#route = this.findAPath(this.#startCell.vertex, this.#endCell.vertex)
-            if (this.#route) {
-                this.#rafId = requestAnimationFrame(ts => this.animate(ts))
-            }
         }
     }
 }

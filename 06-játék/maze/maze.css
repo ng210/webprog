@@ -56,7 +56,18 @@ cell.selected {
     background-color: #fff2;
 }
 
+div.moving {
+    position: absolute;
+}
+
 div.player {
-    border-radius: 30%;
+    background: #26a;
+    border-radius: 40%;
+    transform: translate(0px, 0px);
+}
+
+div.enemy {
+    background: #e44;
+    border-radius: 20%;
     transform: translate(0px, 0px);
 }
