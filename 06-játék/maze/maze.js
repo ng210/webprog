@@ -1,7 +1,9 @@
-import { GrpEdge, GrpVertex, Graph } from "../../lib/graph.js"
+import { Graph } from "../../lib/graph.js"
+import Player from "./player.js"
+import Enemy from "./enemy.js"
 
-const DURATION = 200
-const ENEMY_COUNT = 3
+const DURATION = 300
+const ENEMY_COUNT = 4
 
 export default class Maze extends Graph {
     width
@@ -18,10 +20,6 @@ export default class Maze extends Graph {
     #player = null
     #food = []
     #enemies = []
-
-    static get observedAttributes() {
-        return ['x', 'y', 'data'];
-    }
 
     constructor(width, height) {
         super()
@@ -52,7 +50,7 @@ export default class Maze extends Graph {
         const vertices = [...this.#graph.vertices]
         const max = vertices.length * density
         for (let di=0; di<max; di++) {
-            while (vertices.length > 0) {
+            //while (vertices.length > 0) {
                 const vi = Math.trunc(vertices.length * Math.random())
                 const vertex = vertices[vi]
                 if (vertex.degreeOut > 2) {
@@ -65,7 +63,7 @@ export default class Maze extends Graph {
                         edge1.data.weight = Infinity
                         edge1.reverse.data.weight = Infinity
                         eix.splice(ei, 1)
-                        if (edge1.vertexEnd.degreeIn > 2 && this.findAPath(edge1.vertexStart, edge1.vertexEnd)) {
+                        if (edge1.vertexEnd.degreeIn > 2/* && this.findAPath(edge1.vertexStart, edge1.vertexEnd)*/) {
                             this.#graph.removeEdge(edge1)
                             this.#graph.removeEdge(edge1.reverse)
                             break
@@ -88,24 +86,24 @@ export default class Maze extends Graph {
                 //     edge1.data.weight = wi1
                 //     edge2.data.weight = wi2
                 // }
-            }
+            //}
         }
 
-        this.#player = {
-                x: 0, y: 0,
-                vertex: this.#map[0][0],
-                elapsed: 0,
-                duration: DURATION
-        }
+        this.#player = new Player(
+                0, 0,
+                this.#map[0][0],
+                DURATION
+        )
 
         for (let ei=0; ei<ENEMY_COUNT; ei++) {
             const x = Math.trunc(this.width * Math.random())
             const y = Math.trunc(this.height * Math.random())
-            this.#enemies.push({
-                x, y,
-                vertex: this.#map[y][x],
-                elapsed: 0,
-                duration: 2*DURATION/(0.5 + 0.5*Math.random()) })
+            this.#enemies.push(
+                new Enemy(
+                    x, y,
+                    this.#map[y][x],
+                    2*DURATION/(0.5 + 0.5*Math.random())
+                ))
         }
     }
 
@@ -191,7 +189,7 @@ export default class Maze extends Graph {
         for (let v of this.#graph) {
             let cell = document.createElement('cell')
             cell.id = v.id
-            cell.innerText = v.edgesIn.length
+            // cell.innerText = v.edgesIn.length
             cell.vertex = v
             for (let d of directions) {
                 cell.style[`border${d}Style`] = 'solid'
