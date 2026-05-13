@@ -16,5 +16,7 @@ async function loadUnitList(url) {
 
 const _url = 'http://127.0.0.1:5500/07-oop/units.csv'
 _unitList = await loadUnitList(_url)
+const f5 = document.getElementById('f5')
+f5.innerHTML += _unitList.join('\n') //_unitList.map(u => `${u.name} (${u.id})`)
 
 console.log(_unitList.join('\n'))

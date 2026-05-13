@@ -1,3 +1,8 @@
+@font-face {
+    font-family: ubuntu;
+    src: url(/assets/fonts/UbuntuMono-R.ttf);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -8,7 +13,7 @@ body {
     width: 100vw;
     height: 100vh;
     background: radial-gradient(#124 60%, #000);
-    font-size: 24pt;
+    font-size: 20pt;
 }
 
 main {
@@ -32,12 +37,6 @@ h1 {
     text-align: center;
     font-size: 40pt;
     /* minden tulajdonság animálása */
-}
-
-h1:hover {
-    padding: 21pt;
-    /* betűméret 30pt
-     háttérszín fehér*/
 }
 
 #content {
@@ -68,7 +67,8 @@ section {
 }
 
 .code {
-    font-family: monospace;
+    font-family: ubuntu;
+    font-size: 14pt;
     background-color: #102;
     color: #afc;
     text-align: left;
